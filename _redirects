@@ -1,0 +1,37 @@
+# Home pública (Google) = portafolio + ventas + WhatsApp.
+# Combos = página privada para compartir por WhatsApp (no en Google).
+# Inyector = página privada con auth (no en Google).
+
+# Combos privados completos
+/combos          /combos.html       200
+/precios         /combos.html       200
+
+# Galeria privada de fondos infantiles (solo por link, no en Google)
+/fondos          /fondos.html       200
+
+# Combos + portafolio por categoría (links que ya enviaste a clientes)
+/c/xv             /combos.html?cat=xv          302
+/c/infantil       /combos.html?cat=infantil    302
+/c/graduacion     /combos.html?cat=graduacion  302
+/c/cumpleanos    /combos.html?cat=cumpleanos   302
+/c/embarazadas    /combos.html?cat=embarazadas 302
+
+# Categorías por path corto
+/xv              /combos.html?cat=xv          302
+/infantil        /combos.html?cat=infantil    302
+/graduacion      /combos.html?cat=graduacion  302
+/cumpleanos     /combos.html?cat=cumpleanos   302
+/embarazadas     /combos.html?cat=embarazadas 302
+
+# Portafolio (página web pública). El enlace que enviaste a clientes:
+/portafolio      /#portafolio       302
+/galeria         /#portafolio       302
+
+# Inyector privado con auth
+/admin           /admin-portfolio.html  200
+/inyector        /admin-portfolio.html  200
+/review          /_review_portfolio.html 200
+
+# Compat
+/los-mulos       /                 302
+/plaza-artesanal /                 302

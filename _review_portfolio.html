@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta http-equiv="X-Robots-Tag" content="noindex,nofollow">
+<title>Inyector privado · D' Carela</title>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+(function(){
+  // Gate de auth
+  const EXPECTED = '9c024acbe3469e1d42dfa5b9c7cfe490690dd9338395e522f3ba2530c68a8599';
+  const SESSION_KEY = 'dcarela_admin_pf_auth_v1';
+  if (sessionStorage.getItem(SESSION_KEY) === 'ok') return;
+  document.addEventListener('DOMContentLoaded', function(){
+    document.documentElement.innerHTML = `<head><title>Acceso restringido · D' Carela</title>
+      <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+      <body style="margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0d0a14;color:#f5eef5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px">
+        <div style="background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:34px 30px;max-width:380px;width:100%;backdrop-filter:blur(20px)">
+          <div style="font-size:34px;text-align:center;margin-bottom:14px">🔒</div>
+          <h1 style="font-size:18px;font-weight:850;text-align:center;margin-bottom:8px">Inyector privado</h1>
+          <p style="font-size:12.5px;color:#a99fb5;text-align:center;margin-bottom:20px;line-height:1.5">Ingresa la clave de administrador.</p>
+          <form id="pf_auth_form">
+            <input id="pf_auth_pwd" type="password" autocomplete="current-password" placeholder="Contraseña" autofocus
+              style="width:100%;background:#0d0a14;border:1px solid rgba(255,255,255,.12);color:#fff;padding:13px 14px;border-radius:11px;font-size:14px;outline:none;margin-bottom:10px">
+            <div id="pf_auth_err" style="font-size:12px;color:#f87171;text-align:center;min-height:18px;margin-bottom:10px"></div>
+            <button type="submit" style="width:100%;background:linear-gradient(135deg,#d7a85f,#c79cff);color:#140b1f;border:0;padding:13px;border-radius:11px;font-weight:850;font-size:13.5px;cursor:pointer">Entrar</button>
+          </form>
+        </div>
+      </body>`;
+    async function sha256(s){
+      const buf = new TextEncoder().encode(s);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    document.getElementById('pf_auth_form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const pwd = document.getElementById('pf_auth_pwd').value;
+      const hash = await sha256(pwd);
+      if (hash === EXPECTED) { sessionStorage.setItem(SESSION_KEY, 'ok'); location.reload(); }
+      else { document.getElementById('pf_auth_err').textContent = 'Clave incorrecta.'; document.getElementById('pf_auth_pwd').value = ''; }
+    });
+  });
+  document.write('<style>body{display:none!important}</style>');
+})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0614;--card:#150f22;--ink:#f8f5ff;--mut:#a89cbf;--line:rgba(255,255,255,.10);--accent:#c79cff;--ok:#10b981;--warn:#f59e0b;--bad:#ef4444}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+ background:radial-gradient(1000px 600px at 10% -10%,rgba(199,156,255,.18),transparent 60%),
+  radial-gradient(700px 400px at 100% 100%,rgba(215,168,95,.10),transparent 60%),
+  linear-gradient(160deg,#0a0614 0%,#13091f 50%,#0a0614 100%);
+ color:var(--ink);line-height:1.5;padding-bottom:90px}
+header{position:sticky;top:0;z-index:30;background:rgba(10,6,20,.84);backdrop-filter:blur(16px);
+ border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:18px;font-weight:850;letter-spacing:-.3px;margin-right:auto}
+.status{font-size:11.5px;color:var(--mut);font-weight:700;padding:4px 10px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px}
+.status.ok{background:rgba(16,185,129,.18);border-color:rgba(16,185,129,.35);color:#86efac}
+.status.warn{background:rgba(245,158,11,.18);border-color:rgba(245,158,11,.35);color:#fcd34d}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;
+ border:0;padding:11px 18px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;
+ box-shadow:0 8px 22px rgba(16,185,129,.32);transition:.18s;text-decoration:none}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(16,185,129,.42)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);box-shadow:none}
+.btn.ghost:hover{background:rgba(255,255,255,.04)}
+.btn.accent{background:linear-gradient(135deg,#c79cff,#ec4899);box-shadow:0 8px 22px rgba(199,156,255,.30)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+.wrap{max-width:1280px;margin:0 auto;padding:20px 22px 100px}
+.howto{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+ border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:18px;
+ font-size:13px;color:#d0c8e2;line-height:1.6;backdrop-filter:blur(10px)}
+.howto b{color:#fff}
+.howto .step{display:inline-block;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#140b1f;font-weight:850;font-size:11px;text-align:center;line-height:22px;margin-right:8px;margin-left:0}
+
+.cats-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.cats-row .lbl{font-size:11px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:1px;margin-right:6px}
+.cats-row a{font-size:12px;font-weight:700;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);
+ padding:7px 14px;border-radius:18px;text-decoration:none;transition:.15s}
+.cats-row a:hover{background:rgba(199,156,255,.18);border-color:var(--accent)}
+
+h2{font-size:15px;margin:24px 0 10px;color:#fff;font-weight:850;display:flex;align-items:center;gap:9px;
+ padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line);
+ transition:background .15s,border .15s}
+h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+h2 .n{margin-left:auto;font-size:11.5px;color:var(--mut);font-weight:600;background:rgba(255,255,255,.05);padding:3px 9px;border-radius:8px}
+h2.dropon{background:rgba(199,156,255,.18);border-color:var(--accent);box-shadow:0 8px 28px rgba(199,156,255,.20)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.cell{position:relative;border:2px solid var(--line);border-radius:13px;overflow:hidden;background:#1a1325;cursor:grab;user-select:none;
+ transition:transform .18s,box-shadow .18s,border .18s}
+.cell:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.45);border-color:rgba(199,156,255,.40)}
+.cell:active{cursor:grabbing}
+.cell img{display:block;width:100%;height:200px;object-fit:cover;pointer-events:none}
+.cell .id{position:absolute;top:6px;left:6px;font:bold 10px ui-monospace,monospace;background:rgba(0,0,0,.82);color:#fff;padding:3px 8px;border-radius:6px;letter-spacing:.3px}
+.cell .meta{position:absolute;bottom:0;left:0;right:0;font-size:11px;padding:6px 9px;background:linear-gradient(transparent,rgba(0,0,0,.88));color:#d8cde0;font-weight:600}
+.cell.sel{outline:3px solid var(--accent);outline-offset:-3px;border-color:var(--accent)}
+.cell.changed{outline:3px solid var(--warn);outline-offset:-3px;border-color:var(--warn)}
+.cell.changed .meta{color:#fcd34d;font-weight:800}
+.cell.dragging{opacity:.35;transform:scale(.95)}
+.cell .quick{position:absolute;top:6px;right:6px;display:flex;flex-direction:column;gap:3px;opacity:0;transition:.15s}
+.cell:hover .quick{opacity:1}
+.cell .quick button{background:rgba(0,0,0,.82);color:#fff;border:1px solid rgba(255,255,255,.18);padding:3px 8px;font-size:9.5px;font-weight:800;border-radius:6px;cursor:pointer;text-transform:uppercase;letter-spacing:.4px;backdrop-filter:blur(4px)}
+.cell .quick button:hover{background:var(--accent);color:#140b1f;border-color:transparent}
+
+.toolbar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,6,20,.94);backdrop-filter:blur(18px);
+ border-top:1px solid var(--line);padding:13px 22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:40;
+ box-shadow:0 -10px 40px rgba(0,0,0,.5)}
+.toolbar .sel-count{font-size:12px;color:var(--mut);font-weight:700}
+.toolbar .changes-info{font-size:12px;font-weight:700;color:var(--warn)}
+.toolbar select,.toolbar input[type=text]{background:#0d0a14;border:1px solid var(--line);color:#fff;padding:9px 11px;border-radius:9px;font-size:12px;min-width:150px}
+.toolbar .spacer{flex:1}
+#log{max-width:280px;font-family:ui-monospace,monospace;font-size:10px;color:var(--mut);max-height:60px;overflow-y:auto;white-space:pre-wrap;background:#0d0a14;border:1px solid var(--line);padding:5px 9px;border-radius:7px;display:none}
+#log.has{display:block}
+@media(max-width:720px){.toolbar{padding:10px 14px;flex-direction:column;align-items:stretch}.toolbar select{min-width:0}}
+</style>
+</head>
+<body>
+
+<header>
+ <h1>Inyector privado · D' Carela</h1>
+ <span class="status" id="status">cargando...</span>
+ <button class="btn" id="downloadBtn">⬇ Descargar JSON actualizado</button>
+ <button class="btn ghost" id="uploadBtn">+ Subir fotos al portafolio</button>
+ <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
+</header>
+
+<div class="wrap">
+ <div class="howto">
+  <b>Cómo arreglar categorías de fotos en 3 pasos:</b><br>
+  <span class="step">1</span><b>Arrastra una foto</b> a la barra de otra categoría (o usa el dropdown abajo).<br>
+  <span class="step">2</span>Cuando termines, click el botón verde <b>⬇ Descargar JSON actualizado</b>.<br>
+  <span class="step">3</span>Mándame el archivo descargado o avísame que está listo y yo lo subo al sitio en 30 segundos.
+ </div>
+
+ <div class="cats-row">
+  <span class="lbl">Saltar a:</span>
+  <div id="cats"></div>
+ </div>
+
+ <div id="root"></div>
+</div>
+
+<div class="toolbar">
+ <span class="sel-count" id="selCount">0 seleccionadas</span>
+ <select id="targetCat">
+  <option value="">— mover seleccionadas a —</option>
+  <option value="xv">XV</option>
+  <option value="infantil">Infantil</option>
+  <option value="graduacion">Graduación</option>
+  <option value="cumpleanos">Cumpleaños</option>
+  <option value="embarazadas">Embarazadas</option>
+ </select>
+ <button class="btn accent" id="moveBtn">Mover</button>
+ <button class="btn ghost" id="clearBtn">Limpiar selección</button>
+ <span class="spacer"></span>
+ <span class="changes-info" id="changesInfo"></span>
+ <div id="log"></div>
+</div>
+
+<script>
+const CATS_ORDER = ['xv','infantil','graduacion','cumpleanos','embarazadas'];
+const CAT_LABEL = {xv:'XV',infantil:'Infantil',graduacion:'Graduación',cumpleanos:'Cumpleaños',embarazadas:'Embarazadas'};
+const changes = {};
+const selected = new Set();
+let allData = [];
+let dragSrcId = null;
+let dragWasMoved = false;
+
+function setStatus(text, cls){
+  const s = document.getElementById('status');
+  s.textContent = text;
+  s.className = 'status' + (cls ? ' ' + cls : '');
+}
+
+function applyDrop(targetCat){
+  if (!dragSrcId) return;
+  const ids = selected.has(dragSrcId) && selected.size > 1 ? Array.from(selected) : [dragSrcId];
+  let n = 0;
+  for (const id of ids) {
+    const item = allData.find(i => i.id === id);
+    const curCat = (item && (changes[id] || item.category || '').toLowerCase()) || '';
+    if (curCat === targetCat) continue;
+    changes[id] = targetCat; n++;
+  }
+  if (n > 0) {
+    selected.clear();
+    document.getElementById('selCount').textContent = '0 seleccionadas';
+    dragWasMoved = true;
+    render();
+  }
+}
+
+function render(){
+  const cats = {};
+  for (const i of allData) {
+    const c = (changes[i.id] || i.category || 'unknown').toLowerCase();
+    (cats[c] = cats[c] || []).push(i);
+  }
+  const keys = CATS_ORDER.filter(k => cats[k]).concat(Object.keys(cats).filter(k => !CATS_ORDER.includes(k)));
+
+  const catsLine = document.getElementById('cats');
+  catsLine.innerHTML = keys.map(k => `<a href="#cat-${k}">${CAT_LABEL[k] || k} (${cats[k].length})</a>`).join('');
+
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+  for (const k of keys) {
+    const h = document.createElement('h2');
+    h.id = 'cat-' + k; h.dataset.cat = k;
+    h.innerHTML = `<span class="dot"></span>${(CAT_LABEL[k] || k).toUpperCase()}<span class="n">${cats[k].length} fotos</span>`;
+    root.appendChild(h);
+
+    const g = document.createElement('div'); g.className = 'grid'; g.dataset.cat = k;
+
+    const onOver = e => { e.preventDefault(); e.dataTransfer.dropEffect='move'; h.classList.add('dropon'); };
+    const onLeave = () => h.classList.remove('dropon');
+    const onDrop = e => {
+      e.preventDefault(); e.stopPropagation();
+      h.classList.remove('dropon');
+      if (!dragSrcId) dragSrcId = e.dataTransfer.getData('text/plain');
+      applyDrop(k);
+    };
+    h.ondragover = onOver; h.ondragleave = onLeave; h.ondrop = onDrop;
+    g.ondragover = onOver; g.ondragleave = onLeave; g.ondrop = onDrop;
+
+    for (const it of cats[k]) {
+      const cell = document.createElement('div');
+      cell.className = 'cell' + (selected.has(it.id) ? ' sel' : '') + (changes[it.id] ? ' changed' : '');
+      cell.draggable = true;
+      cell.dataset.id = it.id;
+      const quickOpts = CATS_ORDER.filter(c => c !== k).map(c => `<button data-mv="${c}">${CAT_LABEL[c]}</button>`).join('');
+      cell.innerHTML = `
+        <img src="${it.image}" alt="${it.id}" loading="lazy" draggable="false">
+        <div class="id">${it.id}</div>
+        <div class="quick">${quickOpts}</div>
+        <div class="meta">${changes[it.id] ? '→ ' + (CAT_LABEL[changes[it.id]]||changes[it.id]) : (it.orientation || '')}</div>`;
+      cell.ondragstart = e => {
+        dragSrcId = it.id; dragWasMoved = false;
+        e.dataTransfer.setData('text/plain', it.id);
+        e.dataTransfer.effectAllowed = 'move';
+        cell.classList.add('dragging');
+      };
+      cell.ondragend = () => { cell.classList.remove('dragging'); dragSrcId = null; };
+      cell.ondragover = e => { e.preventDefault(); e.dataTransfer.dropEffect='move'; h.classList.add('dropon'); };
+      cell.ondrop = e => { e.preventDefault(); e.stopPropagation(); h.classList.remove('dropon');
+        if (!dragSrcId) dragSrcId = e.dataTransfer.getData('text/plain');
+        applyDrop(k);
+      };
+      // Quick botones: mover este sin drag
+      cell.querySelectorAll('.quick button').forEach(b => b.onclick = (e) => {
+        e.stopPropagation();
+        const tgt = b.dataset.mv;
+        if (k === tgt) return;
+        changes[it.id] = tgt;
+        render();
+      });
+      cell.onclick = () => {
+        if (dragWasMoved) { dragWasMoved = false; return; }
+        if (selected.has(it.id)) selected.delete(it.id); else selected.add(it.id);
+        cell.classList.toggle('sel');
+        document.getElementById('selCount').textContent = selected.size + ' seleccionadas';
+      };
+      g.appendChild(cell);
+    }
+    root.appendChild(g);
+  }
+  refreshChangesInfo();
+}
+
+function refreshChangesInfo(){
+  const log = document.getElementById('log');
+  const info = document.getElementById('changesInfo');
+  const n = Object.keys(changes).length;
+  if (n) {
+    info.textContent = `⚠ ${n} cambio(s) sin guardar`;
+    log.textContent = Object.entries(changes).map(([id,cat])=>id+' → '+cat).join('\n');
+    log.classList.add('has');
+  } else {
+    info.textContent = '';
+    log.classList.remove('has');
+    log.textContent = '';
+  }
+}
+
+document.getElementById('moveBtn').onclick = () => {
+  const t = document.getElementById('targetCat').value.trim().toLowerCase();
+  if (!t) { alert('Elige una categoría destino del dropdown.'); return; }
+  if (!selected.size) { alert('Selecciona al menos una foto (clic en cada una).'); return; }
+  for (const id of selected) changes[id] = t;
+  selected.clear();
+  document.getElementById('selCount').textContent = '0 seleccionadas';
+  document.getElementById('targetCat').value = '';
+  render();
+};
+
+document.getElementById('clearBtn').onclick = () => {
+  if (!Object.keys(changes).length && !selected.size) return;
+  if (confirm('¿Borrar selección y todos los cambios pendientes?')) {
+    Object.keys(changes).forEach(k => delete changes[k]);
+    selected.clear();
+    document.getElementById('selCount').textContent = '0 seleccionadas';
+    render();
+  }
+};
+
+document.getElementById('downloadBtn').onclick = () => {
+  if (!allData.length) { alert('Los datos del portafolio aún no se cargaron. Espera 2 segundos y vuelve a intentar.'); return; }
+  // Aplica cambios a una copia
+  const updated = JSON.parse(JSON.stringify(allData));
+  const labelMap = {xv:'XV',infantil:'Infantil',graduacion:'Graduación',cumpleanos:'Cumpleaños',embarazadas:'Embarazadas'};
+  let applied = 0;
+  for (const [id, cat] of Object.entries(changes)) {
+    const item = updated.find(i => i.id === id);
+    if (item) {
+      item.category = cat;
+      item.categorySlug = cat;
+      item.categoryFinal = (labelMap[cat] || cat).normalize('NFD').replace(/[̀-ͯ]/g,'');
+      item.categoryLabel = labelMap[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1));
+      applied++;
+    }
+  }
+  if (!applied) {
+    if (!confirm('No hay cambios pendientes. ¿Descargar el JSON actual igual?')) return;
+  }
+  const blob = new Blob([JSON.stringify(updated, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'portfolio-data.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  setStatus(`✓ Descargado · ${applied} cambios aplicados`, 'ok');
+  alert(`✓ JSON descargado (${applied} cambios)\n\nSiguiente paso:\n1. El archivo "portfolio-data.json" está en tu carpeta Descargas.\n2. Envíaselo a Claude/Erickc o sube por WhatsApp.\n3. En menos de 1 minuto está en el sitio.`);
+};
+
+// === Subir fotos nuevas → bundle ZIP descargable ===
+let pendingUploads = []; // { file, name, category, ext, preview }
+document.getElementById('uploadBtn').onclick = () => document.getElementById('fileInput').click();
+document.getElementById('fileInput').onchange = (e) => {
+  const files = Array.from(e.target.files || []);
+  if (!files.length) return;
+  pendingUploads = files.map(f => ({
+    file: f,
+    origName: f.name,
+    category: 'xv',
+    ext: (f.name.split('.').pop() || 'jpg').toLowerCase(),
+    preview: URL.createObjectURL(f),
+  }));
+  e.target.value = '';
+  showUploadModal();
+};
+
+function showUploadModal(){
+  let modal = document.getElementById('uploadModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'uploadModal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:90;background:rgba(4,3,10,.86);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:24px';
+    modal.innerHTML = `
+      <div style="background:linear-gradient(180deg,#150f22,#0a0614);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:24px;max-width:680px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(0,0,0,.6)">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+          <h2 style="font-size:17px;font-weight:850;flex:1">📸 Subir fotos al portafolio</h2>
+          <button id="upClose" style="background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;width:34px;height:34px;border-radius:10px;font-size:16px;cursor:pointer">×</button>
+        </div>
+        <p style="font-size:12.5px;color:var(--mut);margin-bottom:14px;line-height:1.55">
+          Selecciona la categoría de cada foto. Al confirmar, te descargas un <b>ZIP</b> con las fotos + el JSON actualizado. Mándalo por WhatsApp y en 30s queda en el sitio.
+        </p>
+        <div id="upList" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:6px"></div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)">
+          <button id="upCancel" class="btn ghost">Cancelar</button>
+          <button id="upConfirm" class="btn">⬇ Generar paquete ZIP</button>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+    document.getElementById('upClose').onclick = closeUploadModal;
+    document.getElementById('upCancel').onclick = closeUploadModal;
+    document.getElementById('upConfirm').onclick = generateUploadZip;
+    modal.addEventListener('click', e => { if (e.target === modal) closeUploadModal(); });
+  }
+  modal.style.display = 'flex';
+  const list = document.getElementById('upList');
+  list.innerHTML = pendingUploads.map((u, i) => `
+    <div style="display:flex;gap:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;padding:9px;align-items:center">
+      <img src="${u.preview}" style="width:64px;height:64px;border-radius:9px;object-fit:cover;flex:0 0 auto">
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:12px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${u.origName}</div>
+        <div style="font-size:10.5px;color:var(--mut);margin-top:2px">${Math.round(u.file.size/1024)} KB · ${u.ext}</div>
+      </div>
+      <select data-idx="${i}" class="upCat" style="background:#0d0a14;border:1px solid var(--line);color:#fff;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700">
+        <option value="xv"${u.category==='xv'?' selected':''}>XV</option>
+        <option value="infantil"${u.category==='infantil'?' selected':''}>Infantil</option>
+        <option value="graduacion"${u.category==='graduacion'?' selected':''}>Graduación</option>
+        <option value="cumpleanos"${u.category==='cumpleanos'?' selected':''}>Cumpleaños</option>
+        <option value="embarazadas"${u.category==='embarazadas'?' selected':''}>Embarazadas</option>
+      </select>
+      <button data-rm="${i}" style="background:rgba(239,68,68,.18);color:#fca5a5;border:1px solid rgba(239,68,68,.30);padding:6px 10px;border-radius:8px;font-size:11px;cursor:pointer">×</button>
+    </div>`).join('');
+  list.querySelectorAll('.upCat').forEach(s => s.onchange = (e) => { pendingUploads[+e.target.dataset.idx].category = e.target.value; });
+  list.querySelectorAll('button[data-rm]').forEach(b => b.onclick = (e) => { pendingUploads.splice(+e.target.dataset.rm,1); showUploadModal(); });
+}
+
+function closeUploadModal(){
+  const m = document.getElementById('uploadModal');
+  if (m) m.style.display = 'none';
+}
+
+async function generateUploadZip(){
+  if (!pendingUploads.length) { alert('No hay fotos para subir.'); return; }
+  if (!window.JSZip) { alert('La librería JSZip aún no cargó. Espera 2 segundos y vuelve a intentar.'); return; }
+  const btn = document.getElementById('upConfirm');
+  btn.disabled = true; btn.textContent = 'Generando...';
+  try {
+    const zip = new JSZip();
+    const imgFolder = zip.folder('img');
+    // calcula próximo índice por categoría
+    const existingIds = new Set(allData.map(i => i.id));
+    const nextIdx = { xv:0, infantil:0, graduacion:0, cumpleanos:0, embarazadas:0 };
+    Object.keys(nextIdx).forEach(cat => {
+      while (existingIds.has(`pf_${cat}_${nextIdx[cat]}`)) nextIdx[cat]++;
+    });
+    // construye el nuevo JSON con todas las entradas + nuevas + cambios pendientes
+    const updated = JSON.parse(JSON.stringify(allData));
+    const labelMap = {xv:'XV',infantil:'Infantil',graduacion:'Graduación',cumpleanos:'Cumpleaños',embarazadas:'Embarazadas'};
+    // aplica cambios de categoría pendientes
+    for (const [id, cat] of Object.entries(changes)) {
+      const item = updated.find(i => i.id === id);
+      if (item) {
+        item.category = cat; item.categorySlug = cat;
+        item.categoryFinal = (labelMap[cat] || cat).normalize('NFD').replace(/[̀-ͯ]/g,'');
+        item.categoryLabel = labelMap[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+      }
+    }
+    // agrega nuevas fotos al ZIP + entradas en JSON
+    let added = 0;
+    for (const u of pendingUploads) {
+      const cat = u.category;
+      while (existingIds.has(`pf_${cat}_${nextIdx[cat]}`)) nextIdx[cat]++;
+      const id = `pf_${cat}_${nextIdx[cat]}`;
+      const filename = `${id}.${u.ext}`;
+      // lee el archivo binario y agrégalo a /img/
+      const buf = await u.file.arrayBuffer();
+      imgFolder.file(filename, buf);
+      // agrega al JSON
+      updated.push({
+        id, image: `img/${filename}`, category: cat, categorySlug: cat,
+        categoryFinal: labelMap[cat], categoryLabel: labelMap[cat],
+        status: 'approved', public: true, approved: true, hideFromGoogle: false,
+        orientation: 'vertical', createdAt: new Date().toISOString(),
+        addedBy: 'inyector_zip'
+      });
+      existingIds.add(id);
+      nextIdx[cat]++;
+      added++;
+    }
+    // mete el JSON actualizado en el zip
+    zip.file('portfolio-data.json', JSON.stringify(updated, null, 2));
+    // README con instrucciones
+    const totalCambios = Object.keys(changes).length;
+    zip.file('LEEME.txt',
+`Paquete generado desde el inyector D'Carela
+Fecha: ${new Date().toLocaleString('es-DO')}
+
+Contenido:
+- ${added} fotos nuevas (en img/)
+- ${totalCambios} cambios de categoría pendientes (aplicados al JSON)
+- portfolio-data.json actualizado con todo
+
+Cómo aplicar:
+1. Pásame este ZIP por WhatsApp.
+2. Yo lo extraigo (img/ y portfolio-data.json) y redeployo en menos de 1 minuto.
+3. Las fotos nuevas aparecerán en https://carelacompufoto.netlify.app
+`);
+    // descarga
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `dcarela-update-${new Date().toISOString().slice(0,10)}.zip`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    pendingUploads = [];
+    closeUploadModal();
+    alert(`✓ ZIP descargado con ${added} fotos nuevas${totalCambios?' + '+totalCambios+' cambios de categoría':''}.\n\nSiguiente paso:\n1. El archivo "dcarela-update-${new Date().toISOString().slice(0,10)}.zip" está en tu carpeta Descargas.\n2. Envíamelo por WhatsApp.\n3. En menos de 1 minuto está en el sitio.`);
+    setStatus(`✓ ZIP listo · ${added} fotos nuevas`, 'ok');
+  } catch (e) {
+    alert('Error generando el ZIP: ' + e.message);
+  } finally {
+    btn.disabled = false; btn.textContent = '⬇ Generar paquete ZIP';
+  }
+}
+
+// Carga datos
+fetch('portfolio-data.json',{cache:'no-store'})
+  .then(r => r.json())
+  .then(d => {
+    allData = d;
+    setStatus(`✓ ${d.length} fotos cargadas · arrastra o usa los botones de cada foto`, 'ok');
+    render();
+  })
+  .catch(e => {
+    setStatus('error cargando portfolio-data.json', 'warn');
+    document.getElementById('root').textContent = 'Error: ' + e.message;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin-portfolio.html
+Disallow: /inyector
+Disallow: /review
+Disallow: /_review_portfolio.html
+Disallow: /combos
+Disallow: /combos.html
+Disallow: /precios
+Disallow: /portfolio-data.json
+Disallow: /combos-privados.html
+Disallow: /fondos
+Disallow: /fondos.html
+Disallow: /fondos-data.json
+
+Sitemap: https://carelacompufoto.netlify.app/sitemap.xml
