@@ -32,7 +32,13 @@
   .chip.active{background:var(--accent);border-color:var(--accent);color:#fff;
     box-shadow:0 6px 16px rgba(232,93,138,.35)}
   main{max-width:1100px;margin:0 auto;padding:16px}
-  .intro{font-size:13.5px;color:var(--soft);margin:4px 2px 16px;line-height:1.5}
+  .intro{font-size:13.5px;color:var(--soft);margin:4px 2px 12px;line-height:1.5}
+  .cta-custom{display:flex;align-items:center;justify-content:center;gap:9px;
+    margin:0 2px 18px;padding:14px 16px;border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+    text-decoration:none;font-weight:850;font-size:14px;line-height:1.3;text-align:center;
+    box-shadow:0 8px 22px rgba(232,93,138,.32)}
+  .cta-custom:active{opacity:.88}
   .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   @media(min-width:560px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;
@@ -79,6 +85,7 @@
   <p class="intro">Toca el fondo que te guste y te llevamos a WhatsApp con el código listo.
     ¿Buscas una temática especial (ej. <b>Cake smash</b>, <b>Moana</b>)? Búscala en Pinterest o
     mándanos una foto de referencia — una persona del estudio confirma si la podemos recrear.</p>
+  <a class="cta-custom" id="waCustom" target="_blank" rel="noopener">✨ Tengo mi propia temática o quiero algo diferente</a>
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" hidden>
     <b>Catálogo en preparación</b>
@@ -108,6 +115,14 @@
     return "https://wa.me/" + state.wa + "?text=" + encodeURIComponent(txt);
   }
   function imgUrl(rel){ return state.base.replace(/\/$/,"") + "/" + rel; }
+  function waCustomLink(){
+    var txt = "Hola D' Carela Compufoto 👋 No vi exactamente lo que busco en los fondos. " +
+              "Tengo mi propia temática / quiero algo diferente para mi sesión infantil. " +
+              "¿Me ayudan a coordinarla?";
+    return "https://wa.me/" + state.wa + "?text=" + encodeURIComponent(txt);
+  }
+  function setCustomHref(){ var el=document.getElementById("waCustom"); if(el) el.href=waCustomLink(); }
+  setCustomHref();
 
   function render(){
     var grid = document.getElementById("grid");
@@ -163,11 +178,22 @@
   lb.addEventListener("click", function(e){ if(e.target===lb) closeLb(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLb(); });
 
+  function applyDeepLink(){
+    // Permite que un anuncio lleve directo a una temática: fondos.html?linea=princesas-castillos
+    var m=/[?&](?:linea|t|tematica)=([^&#]+)/.exec(location.search);
+    if(!m) return;
+    var want=decodeURIComponent(m[1]).toLowerCase();
+    var lineas=state.data.lineas||[];
+    for(var i=0;i<lineas.length;i++){
+      var L=lineas[i];
+      if((L.id||"").toLowerCase()===want && (L.count||0)>0){ state.filter=L.id; break; }
+    }
+  }
   fetch("fondos-data.json", {cache:"no-cache"})
     .then(function(r){ return r.json(); })
     .then(function(j){
       state.data=j; state.base=j.base_url||"fondos"; state.wa=j.wa_number||WA_FALLBACK;
-      renderFilters(); render();
+      applyDeepLink(); setCustomHref(); renderFilters(); render();
     })
     .catch(function(){
       document.getElementById("empty").hidden=false;
