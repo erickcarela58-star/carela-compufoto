@@ -163,10 +163,10 @@
   lb.addEventListener("click", function(e){ if(e.target===lb) closeLb(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLb(); });
 
-  fetch("/fondos-data.json", {cache:"no-cache"})
+  fetch("fondos-data.json", {cache:"no-cache"})
     .then(function(r){ return r.json(); })
     .then(function(j){
-      state.data=j; state.base=j.base_url||"/fondos"; state.wa=j.wa_number||WA_FALLBACK;
+      state.data=j; state.base=j.base_url||"fondos"; state.wa=j.wa_number||WA_FALLBACK;
       renderFilters(); render();
     })
     .catch(function(){
