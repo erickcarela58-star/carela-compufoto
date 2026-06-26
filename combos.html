@@ -346,6 +346,21 @@ a{text-decoration:none;color:inherit}
 </style>
 </head>
 <body>
+<script>
+/* CAMPAÑA · garantía de número del bot.
+   Si el visitante llega desde un anuncio (?src=ad), TODO botón de WhatsApp apunta al
+   número del bot (18495245620) para que responda el bot y se atribuya la conversión a
+   Meta (CAPI). El comportamiento orgánico (2 sucursales: Los Mulos + Plaza Artesanal)
+   NO cambia cuando no viene ?src=ad. */
+window.__ADBOT__ = /[?&]src=ad(&|$)/.test(location.search);
+if (window.__ADBOT__) {
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="wa.me/18098337809"]').forEach(function (a) {
+      a.href = a.href.replace('18098337809', '18495245620');
+    });
+  });
+}
+</script>
 <div class="bg"></div>
 <div class="orbs"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
 <header class="hdr"><div class="hdr-in">
@@ -962,7 +977,12 @@ Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
       return Array.isArray(value)?value.filter(Boolean).join(', '):(value||'');
     }
     function sucursalPhone(){
-      // Mapeo sucursal -> número WhatsApp. Default = Los Mulos.
+      // Mapeo sucursal -> número WhatsApp. Default = Los Mulos (número del bot).
+      // CAMPAÑA: si el visitante llegó desde un anuncio (?src=ad), SIEMPRE va al número
+      // del bot aunque elija Plaza Artesanal — así el bot responde y la conversión se
+      // atribuye a Meta (CAPI). Sin esto, un lead de pauta podría caer en el 2do número
+      // (sin bot) y perderse. El flujo orgánico de 2 sucursales no cambia.
+      if(window.__ADBOT__)return '18495245620';
       var s=(ctx.state.sucursal||'').toLowerCase();
       if(s.indexOf('plaza artesanal')>=0)return '18098337809';
       return '18495245620';
