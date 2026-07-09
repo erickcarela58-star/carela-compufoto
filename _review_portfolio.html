@@ -469,8 +469,9 @@ Contenido:
 
 Cómo aplicar:
 1. Pásame este ZIP por WhatsApp.
-2. Yo lo extraigo (img/ y portfolio-data.json) y redeployo en menos de 1 minuto.
-3. Las fotos nuevas aparecerán en https://carelacompufoto.netlify.app
+2. Lo extraigo (img/ y portfolio-data.json) en el staging del catálogo.
+3. Tú corres el script de publicación (push_catalog.py) para subirlo a GitHub Pages.
+4. Las fotos nuevas aparecerán en https://erickcarela58-star.github.io/carela-compufoto/ (1-2 min despues del push)
 `);
     // descarga
     const blob = await zip.generateAsync({ type: 'blob' });

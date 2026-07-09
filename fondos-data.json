@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18",
+  "updated_at": "2026-07-08T00:00:00Z",
   "base_url": "fondos",
   "wa_number": "18495245620",
   "note": "Fuente de verdad del catalogo de fondos infantiles. Lo genera/actualiza scripts/ingest_fondos.py a partir de la carpeta de imagenes en buena calidad. NO editar fondos[] a mano salvo para reasignar 'linea'. 'lineas' son las lineas visuales del catalogo del estudio (vistas en el PDF infantil); no inventar nombres de fondos individuales.",
@@ -8,49 +8,49 @@
       "id": "globos-pastel",
       "label": "Arcos de globos pastel",
       "orden": 10,
-      "count": 0
+      "count": 57
     },
     {
       "id": "arcoiris",
       "label": "Arcoiris",
       "orden": 20,
-      "count": 0
+      "count": 11
     },
     {
       "id": "animalitos-bosque",
       "label": "Animalitos y bosque",
       "orden": 30,
-      "count": 0
+      "count": 29
     },
     {
       "id": "flores",
       "label": "Flores",
       "orden": 40,
-      "count": 0
+      "count": 12
     },
     {
       "id": "princesas-castillos",
       "label": "Princesas y castillos",
       "orden": 50,
-      "count": 0
+      "count": 4
     },
     {
       "id": "bajo-el-mar",
       "label": "Bajo el mar",
       "orden": 60,
-      "count": 0
+      "count": 10
     },
     {
       "id": "dulces",
       "label": "Dulces y candy",
       "orden": 70,
-      "count": 0
+      "count": 2
     },
     {
       "id": "transporte",
       "label": "Transporte",
       "orden": 80,
-      "count": 0
+      "count": 11
     },
     {
       "id": "navidad",
@@ -62,7 +62,7 @@
       "id": "sin-clasificar",
       "label": "Sin clasificar",
       "orden": 999,
-      "count": 142
+      "count": 6
     }
   ],
   "fondos": [
@@ -79,7 +79,7 @@
       "codigo": "f2025-10",
       "archivo": "f2025-10.webp",
       "thumb": "thumbs/f2025-10.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (10).jpeg",
       "w": 1600,
       "h": 1134
@@ -88,7 +88,7 @@
       "codigo": "f2025-100",
       "archivo": "f2025-100.webp",
       "thumb": "thumbs/f2025-100.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (100).jpeg",
       "w": 1128,
       "h": 1600
@@ -97,7 +97,7 @@
       "codigo": "f2025-101",
       "archivo": "f2025-101.webp",
       "thumb": "thumbs/f2025-101.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (101).jpeg",
       "w": 1600,
       "h": 1063
@@ -106,7 +106,7 @@
       "codigo": "f2025-102",
       "archivo": "f2025-102.webp",
       "thumb": "thumbs/f2025-102.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (102).jpeg",
       "w": 1600,
       "h": 1063
@@ -115,7 +115,7 @@
       "codigo": "f2025-103",
       "archivo": "f2025-103.webp",
       "thumb": "thumbs/f2025-103.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (103).jpeg",
       "w": 1600,
       "h": 1063
@@ -124,7 +124,7 @@
       "codigo": "f2025-104",
       "archivo": "f2025-104.webp",
       "thumb": "thumbs/f2025-104.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (104).jpeg",
       "w": 1600,
       "h": 1063
@@ -133,7 +133,7 @@
       "codigo": "f2025-105",
       "archivo": "f2025-105.webp",
       "thumb": "thumbs/f2025-105.webp",
-      "linea": "sin-clasificar",
+      "linea": "princesas-castillos",
       "origen": "F2025 (105).jpeg",
       "w": 1600,
       "h": 1131
@@ -142,7 +142,7 @@
       "codigo": "f2025-106",
       "archivo": "f2025-106.webp",
       "thumb": "thumbs/f2025-106.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (106).jpeg",
       "w": 1134,
       "h": 1600
@@ -151,7 +151,7 @@
       "codigo": "f2025-107",
       "archivo": "f2025-107.webp",
       "thumb": "thumbs/f2025-107.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (107).jpeg",
       "w": 1600,
       "h": 1063
@@ -160,7 +160,7 @@
       "codigo": "f2025-108",
       "archivo": "f2025-108.webp",
       "thumb": "thumbs/f2025-108.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (108).jpeg",
       "w": 1600,
       "h": 1146
@@ -169,7 +169,7 @@
       "codigo": "f2025-109",
       "archivo": "f2025-109.webp",
       "thumb": "thumbs/f2025-109.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (109).jpeg",
       "w": 1139,
       "h": 1600
@@ -178,7 +178,7 @@
       "codigo": "f2025-11",
       "archivo": "f2025-11.webp",
       "thumb": "thumbs/f2025-11.webp",
-      "linea": "sin-clasificar",
+      "linea": "princesas-castillos",
       "origen": "F2025 (11).jpg",
       "w": 1600,
       "h": 1143
@@ -187,7 +187,7 @@
       "codigo": "f2025-110",
       "archivo": "f2025-110.webp",
       "thumb": "thumbs/f2025-110.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (110).jpeg",
       "w": 1600,
       "h": 1063
@@ -196,7 +196,7 @@
       "codigo": "f2025-111",
       "archivo": "f2025-111.webp",
       "thumb": "thumbs/f2025-111.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (111).jpeg",
       "w": 1128,
       "h": 1600
@@ -205,7 +205,7 @@
       "codigo": "f2025-112",
       "archivo": "f2025-112.webp",
       "thumb": "thumbs/f2025-112.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (112).jpeg",
       "w": 1600,
       "h": 1063
@@ -214,7 +214,7 @@
       "codigo": "f2025-115",
       "archivo": "f2025-115.webp",
       "thumb": "thumbs/f2025-115.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (115).jpeg",
       "w": 1123,
       "h": 1600
@@ -223,7 +223,7 @@
       "codigo": "f2025-117",
       "archivo": "f2025-117.webp",
       "thumb": "thumbs/f2025-117.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (117).jpeg",
       "w": 1600,
       "h": 1196
@@ -232,7 +232,7 @@
       "codigo": "f2025-12",
       "archivo": "f2025-12.webp",
       "thumb": "thumbs/f2025-12.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (12).jpeg",
       "w": 1600,
       "h": 1196
@@ -241,7 +241,7 @@
       "codigo": "f2025-124",
       "archivo": "f2025-124.webp",
       "thumb": "thumbs/f2025-124.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (124).jpeg",
       "w": 1600,
       "h": 1196
@@ -250,7 +250,7 @@
       "codigo": "f2025-13",
       "archivo": "f2025-13.webp",
       "thumb": "thumbs/f2025-13.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (13).jpeg",
       "w": 1600,
       "h": 1139
@@ -259,7 +259,7 @@
       "codigo": "f2025-14",
       "archivo": "f2025-14.webp",
       "thumb": "thumbs/f2025-14.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (14).jpg",
       "w": 1600,
       "h": 1333
@@ -277,7 +277,7 @@
       "codigo": "f2025-16",
       "archivo": "f2025-16.webp",
       "thumb": "thumbs/f2025-16.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (16).jpeg",
       "w": 1600,
       "h": 1120
@@ -286,7 +286,7 @@
       "codigo": "f2025-17",
       "archivo": "f2025-17.webp",
       "thumb": "thumbs/f2025-17.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (17).jpg",
       "w": 1600,
       "h": 1100
@@ -295,7 +295,7 @@
       "codigo": "f2025-18",
       "archivo": "f2025-18.webp",
       "thumb": "thumbs/f2025-18.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (18).jpeg",
       "w": 1600,
       "h": 1132
@@ -304,7 +304,7 @@
       "codigo": "f2025-19",
       "archivo": "f2025-19.webp",
       "thumb": "thumbs/f2025-19.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (19).jpg",
       "w": 1600,
       "h": 1143
@@ -313,7 +313,7 @@
       "codigo": "f2025-2",
       "archivo": "f2025-2.webp",
       "thumb": "thumbs/f2025-2.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (2).jpeg",
       "w": 1139,
       "h": 1600
@@ -322,7 +322,7 @@
       "codigo": "f2025-20",
       "archivo": "f2025-20.webp",
       "thumb": "thumbs/f2025-20.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (20).jpeg",
       "w": 1600,
       "h": 1132
@@ -331,7 +331,7 @@
       "codigo": "f2025-21",
       "archivo": "f2025-21.webp",
       "thumb": "thumbs/f2025-21.webp",
-      "linea": "sin-clasificar",
+      "linea": "princesas-castillos",
       "origen": "F2025 (21).jpg",
       "w": 1600,
       "h": 1143
@@ -340,7 +340,7 @@
       "codigo": "f2025-22",
       "archivo": "f2025-22.webp",
       "thumb": "thumbs/f2025-22.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (22).jpeg",
       "w": 1600,
       "h": 1196
@@ -349,7 +349,7 @@
       "codigo": "f2025-23",
       "archivo": "f2025-23.webp",
       "thumb": "thumbs/f2025-23.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (23).jpg",
       "w": 1600,
       "h": 1333
@@ -358,7 +358,7 @@
       "codigo": "f2025-24",
       "archivo": "f2025-24.webp",
       "thumb": "thumbs/f2025-24.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (24).jpeg",
       "w": 1600,
       "h": 1196
@@ -367,7 +367,7 @@
       "codigo": "f2025-25",
       "archivo": "f2025-25.webp",
       "thumb": "thumbs/f2025-25.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (25).jpeg",
       "w": 1600,
       "h": 1139
@@ -376,7 +376,7 @@
       "codigo": "f2025-26",
       "archivo": "f2025-26.webp",
       "thumb": "thumbs/f2025-26.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (26).jpg",
       "w": 1600,
       "h": 1333
@@ -385,7 +385,7 @@
       "codigo": "f2025-27",
       "archivo": "f2025-27.webp",
       "thumb": "thumbs/f2025-27.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (27).jpg",
       "w": 1536,
       "h": 1024
@@ -394,7 +394,7 @@
       "codigo": "f2025-28",
       "archivo": "f2025-28.webp",
       "thumb": "thumbs/f2025-28.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (28).jpeg",
       "w": 1123,
       "h": 1600
@@ -403,7 +403,7 @@
       "codigo": "f2025-29",
       "archivo": "f2025-29.webp",
       "thumb": "thumbs/f2025-29.webp",
-      "linea": "sin-clasificar",
+      "linea": "dulces",
       "origen": "F2025 (29).jpg",
       "w": 1600,
       "h": 1333
@@ -421,7 +421,7 @@
       "codigo": "f2025-30",
       "archivo": "f2025-30.webp",
       "thumb": "thumbs/f2025-30.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (30).jpeg",
       "w": 1600,
       "h": 1125
@@ -430,7 +430,7 @@
       "codigo": "f2025-31",
       "archivo": "f2025-31.webp",
       "thumb": "thumbs/f2025-31.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (31).jpg",
       "w": 1600,
       "h": 1333
@@ -439,7 +439,7 @@
       "codigo": "f2025-32",
       "archivo": "f2025-32.webp",
       "thumb": "thumbs/f2025-32.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (32).jpeg",
       "w": 1600,
       "h": 1112
@@ -448,7 +448,7 @@
       "codigo": "f2025-33",
       "archivo": "f2025-33.webp",
       "thumb": "thumbs/f2025-33.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (33).jpg",
       "w": 1600,
       "h": 1333
@@ -457,7 +457,7 @@
       "codigo": "f2025-34",
       "archivo": "f2025-34.webp",
       "thumb": "thumbs/f2025-34.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (34).jpeg",
       "w": 1600,
       "h": 1112
@@ -466,7 +466,7 @@
       "codigo": "f2025-35",
       "archivo": "f2025-35.webp",
       "thumb": "thumbs/f2025-35.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (35).jpg",
       "w": 1448,
       "h": 1086
@@ -475,7 +475,7 @@
       "codigo": "f2025-36",
       "archivo": "f2025-36.webp",
       "thumb": "thumbs/f2025-36.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (36).jpeg",
       "w": 1600,
       "h": 1196
@@ -493,7 +493,7 @@
       "codigo": "f2025-38",
       "archivo": "f2025-38.webp",
       "thumb": "thumbs/f2025-38.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (38).jpeg",
       "w": 1600,
       "h": 1112
@@ -502,7 +502,7 @@
       "codigo": "f2025-39",
       "archivo": "f2025-39.webp",
       "thumb": "thumbs/f2025-39.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (39).jpg",
       "w": 1600,
       "h": 1333
@@ -511,7 +511,7 @@
       "codigo": "f2025-4",
       "archivo": "f2025-4.webp",
       "thumb": "thumbs/f2025-4.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (4).jpeg",
       "w": 1600,
       "h": 1196
@@ -520,7 +520,7 @@
       "codigo": "f2025-40",
       "archivo": "f2025-40.webp",
       "thumb": "thumbs/f2025-40.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (40).jpeg",
       "w": 1600,
       "h": 1067
@@ -529,7 +529,7 @@
       "codigo": "f2025-41",
       "archivo": "f2025-41.webp",
       "thumb": "thumbs/f2025-41.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (41).jpg",
       "w": 1600,
       "h": 1333
@@ -538,7 +538,7 @@
       "codigo": "f2025-42",
       "archivo": "f2025-42.webp",
       "thumb": "thumbs/f2025-42.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (42).jpeg",
       "w": 1600,
       "h": 1200
@@ -547,7 +547,7 @@
       "codigo": "f2025-43",
       "archivo": "f2025-43.webp",
       "thumb": "thumbs/f2025-43.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (43).jpg",
       "w": 1600,
       "h": 1333
@@ -556,7 +556,7 @@
       "codigo": "f2025-44",
       "archivo": "f2025-44.webp",
       "thumb": "thumbs/f2025-44.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (44).jpeg",
       "w": 1600,
       "h": 1196
@@ -565,7 +565,7 @@
       "codigo": "f2025-45",
       "archivo": "f2025-45.webp",
       "thumb": "thumbs/f2025-45.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (45).jpg",
       "w": 1600,
       "h": 1333
@@ -574,7 +574,7 @@
       "codigo": "f2025-46",
       "archivo": "f2025-46.webp",
       "thumb": "thumbs/f2025-46.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (46).jpeg",
       "w": 1600,
       "h": 1147
@@ -583,7 +583,7 @@
       "codigo": "f2025-47",
       "archivo": "f2025-47.webp",
       "thumb": "thumbs/f2025-47.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (47).jpg",
       "w": 1448,
       "h": 1086
@@ -592,7 +592,7 @@
       "codigo": "f2025-48",
       "archivo": "f2025-48.webp",
       "thumb": "thumbs/f2025-48.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (48).jpeg",
       "w": 1600,
       "h": 1200
@@ -601,7 +601,7 @@
       "codigo": "f2025-49",
       "archivo": "f2025-49.webp",
       "thumb": "thumbs/f2025-49.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (49).jpg",
       "w": 1600,
       "h": 1333
@@ -610,7 +610,7 @@
       "codigo": "f2025-5",
       "archivo": "f2025-5.webp",
       "thumb": "thumbs/f2025-5.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (5).jpg",
       "w": 1600,
       "h": 1333
@@ -619,7 +619,7 @@
       "codigo": "f2025-50",
       "archivo": "f2025-50.webp",
       "thumb": "thumbs/f2025-50.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (50).jpeg",
       "w": 1600,
       "h": 1200
@@ -628,7 +628,7 @@
       "codigo": "f2025-51",
       "archivo": "f2025-51.webp",
       "thumb": "thumbs/f2025-51.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (51).jpg",
       "w": 1600,
       "h": 1333
@@ -637,7 +637,7 @@
       "codigo": "f2025-52",
       "archivo": "f2025-52.webp",
       "thumb": "thumbs/f2025-52.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (52).jpeg",
       "w": 1600,
       "h": 1200
@@ -646,7 +646,7 @@
       "codigo": "f2025-53",
       "archivo": "f2025-53.webp",
       "thumb": "thumbs/f2025-53.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (53).jpg",
       "w": 1600,
       "h": 1333
@@ -655,7 +655,7 @@
       "codigo": "f2025-54",
       "archivo": "f2025-54.webp",
       "thumb": "thumbs/f2025-54.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (54).jpeg",
       "w": 1600,
       "h": 1112
@@ -664,7 +664,7 @@
       "codigo": "f2025-55",
       "archivo": "f2025-55.webp",
       "thumb": "thumbs/f2025-55.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (55).jpg",
       "w": 1600,
       "h": 1333
@@ -673,7 +673,7 @@
       "codigo": "f2025-56",
       "archivo": "f2025-56.webp",
       "thumb": "thumbs/f2025-56.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (56).jpeg",
       "w": 1600,
       "h": 1061
@@ -682,7 +682,7 @@
       "codigo": "f2025-57",
       "archivo": "f2025-57.webp",
       "thumb": "thumbs/f2025-57.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (57).jpg",
       "w": 1600,
       "h": 1333
@@ -691,7 +691,7 @@
       "codigo": "f2025-58",
       "archivo": "f2025-58.webp",
       "thumb": "thumbs/f2025-58.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (58).jpeg",
       "w": 1600,
       "h": 1063
@@ -700,7 +700,7 @@
       "codigo": "f2025-59",
       "archivo": "f2025-59.webp",
       "thumb": "thumbs/f2025-59.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (59).jpg",
       "w": 1600,
       "h": 1333
@@ -709,7 +709,7 @@
       "codigo": "f2025-6",
       "archivo": "f2025-6.webp",
       "thumb": "thumbs/f2025-6.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (6).jpeg",
       "w": 1600,
       "h": 1196
@@ -718,7 +718,7 @@
       "codigo": "f2025-60",
       "archivo": "f2025-60.webp",
       "thumb": "thumbs/f2025-60.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (60).jpeg",
       "w": 1134,
       "h": 1600
@@ -727,7 +727,7 @@
       "codigo": "f2025-61",
       "archivo": "f2025-61.webp",
       "thumb": "thumbs/f2025-61.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (61).jpg",
       "w": 1600,
       "h": 1333
@@ -736,7 +736,7 @@
       "codigo": "f2025-62",
       "archivo": "f2025-62.webp",
       "thumb": "thumbs/f2025-62.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (62).jpeg",
       "w": 1600,
       "h": 1140
@@ -745,7 +745,7 @@
       "codigo": "f2025-63",
       "archivo": "f2025-63.webp",
       "thumb": "thumbs/f2025-63.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (63).jpg",
       "w": 1600,
       "h": 1333
@@ -754,7 +754,7 @@
       "codigo": "f2025-64",
       "archivo": "f2025-64.webp",
       "thumb": "thumbs/f2025-64.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (64).jpeg",
       "w": 1600,
       "h": 1061
@@ -763,7 +763,7 @@
       "codigo": "f2025-65",
       "archivo": "f2025-65.webp",
       "thumb": "thumbs/f2025-65.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (65).jpeg",
       "w": 1600,
       "h": 1140
@@ -772,7 +772,7 @@
       "codigo": "f2025-65-2",
       "archivo": "f2025-65-2.webp",
       "thumb": "thumbs/f2025-65-2.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (65).jpg",
       "w": 1600,
       "h": 1140
@@ -781,7 +781,7 @@
       "codigo": "f2025-66",
       "archivo": "f2025-66.webp",
       "thumb": "thumbs/f2025-66.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (66).jpg",
       "w": 1600,
       "h": 1333
@@ -790,7 +790,7 @@
       "codigo": "f2025-67",
       "archivo": "f2025-67.webp",
       "thumb": "thumbs/f2025-67.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (67).jpg",
       "w": 1600,
       "h": 1333
@@ -799,7 +799,7 @@
       "codigo": "f2025-68",
       "archivo": "f2025-68.webp",
       "thumb": "thumbs/f2025-68.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (68).jpeg",
       "w": 1600,
       "h": 1144
@@ -808,7 +808,7 @@
       "codigo": "f2025-69",
       "archivo": "f2025-69.webp",
       "thumb": "thumbs/f2025-69.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (69).jpg",
       "w": 1600,
       "h": 1138
@@ -826,7 +826,7 @@
       "codigo": "f2025-70",
       "archivo": "f2025-70.webp",
       "thumb": "thumbs/f2025-70.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (70).jpeg",
       "w": 1600,
       "h": 1143
@@ -835,7 +835,7 @@
       "codigo": "f2025-71",
       "archivo": "f2025-71.webp",
       "thumb": "thumbs/f2025-71.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (71).jpg",
       "w": 1600,
       "h": 1333
@@ -844,7 +844,7 @@
       "codigo": "f2025-71-sin-edad",
       "archivo": "f2025-71-sin-edad.webp",
       "thumb": "thumbs/f2025-71-sin-edad.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (71)sin edad.jpg",
       "w": 1600,
       "h": 1333
@@ -853,7 +853,7 @@
       "codigo": "f2025-72",
       "archivo": "f2025-72.webp",
       "thumb": "thumbs/f2025-72.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (72).jpeg",
       "w": 1600,
       "h": 1143
@@ -862,7 +862,7 @@
       "codigo": "f2025-73",
       "archivo": "f2025-73.webp",
       "thumb": "thumbs/f2025-73.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (73).jpg",
       "w": 1600,
       "h": 1138
@@ -871,7 +871,7 @@
       "codigo": "f2025-74",
       "archivo": "f2025-74.webp",
       "thumb": "thumbs/f2025-74.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (74).jpeg",
       "w": 1600,
       "h": 1143
@@ -880,7 +880,7 @@
       "codigo": "f2025-75",
       "archivo": "f2025-75.webp",
       "thumb": "thumbs/f2025-75.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "F2025 (75).jpeg",
       "w": 1600,
       "h": 1143
@@ -889,7 +889,7 @@
       "codigo": "f2025-76",
       "archivo": "f2025-76.webp",
       "thumb": "thumbs/f2025-76.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (76).jpg",
       "w": 1600,
       "h": 1333
@@ -898,7 +898,7 @@
       "codigo": "f2025-77",
       "archivo": "f2025-77.webp",
       "thumb": "thumbs/f2025-77.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (77).jpg",
       "w": 1600,
       "h": 1333
@@ -907,7 +907,7 @@
       "codigo": "f2025-78",
       "archivo": "f2025-78.webp",
       "thumb": "thumbs/f2025-78.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (78).jpeg",
       "w": 1600,
       "h": 1143
@@ -916,7 +916,7 @@
       "codigo": "f2025-79",
       "archivo": "f2025-79.webp",
       "thumb": "thumbs/f2025-79.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (79).jpg",
       "w": 1600,
       "h": 1138
@@ -934,7 +934,7 @@
       "codigo": "f2025-80",
       "archivo": "f2025-80.webp",
       "thumb": "thumbs/f2025-80.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (80).jpeg",
       "w": 1207,
       "h": 1600
@@ -943,7 +943,7 @@
       "codigo": "f2025-81",
       "archivo": "f2025-81.webp",
       "thumb": "thumbs/f2025-81.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (81).jpg",
       "w": 1600,
       "h": 1333
@@ -952,7 +952,7 @@
       "codigo": "f2025-82",
       "archivo": "f2025-82.webp",
       "thumb": "thumbs/f2025-82.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (82).jpeg",
       "w": 1600,
       "h": 1140
@@ -961,7 +961,7 @@
       "codigo": "f2025-83",
       "archivo": "f2025-83.webp",
       "thumb": "thumbs/f2025-83.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (83).jpg",
       "w": 1440,
       "h": 1200
@@ -970,7 +970,7 @@
       "codigo": "f2025-84",
       "archivo": "f2025-84.webp",
       "thumb": "thumbs/f2025-84.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (84).jpeg",
       "w": 1600,
       "h": 1063
@@ -979,7 +979,7 @@
       "codigo": "f2025-85",
       "archivo": "f2025-85.webp",
       "thumb": "thumbs/f2025-85.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (85).jpg",
       "w": 1600,
       "h": 1333
@@ -988,7 +988,7 @@
       "codigo": "f2025-86",
       "archivo": "f2025-86.webp",
       "thumb": "thumbs/f2025-86.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F2025 (86).jpeg",
       "w": 1600,
       "h": 1132
@@ -997,7 +997,7 @@
       "codigo": "f2025-87",
       "archivo": "f2025-87.webp",
       "thumb": "thumbs/f2025-87.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (87).jpg",
       "w": 1600,
       "h": 1143
@@ -1006,7 +1006,7 @@
       "codigo": "f2025-88",
       "archivo": "f2025-88.webp",
       "thumb": "thumbs/f2025-88.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (88).jpeg",
       "w": 1600,
       "h": 1140
@@ -1015,7 +1015,7 @@
       "codigo": "f2025-89",
       "archivo": "f2025-89.webp",
       "thumb": "thumbs/f2025-89.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (89).jpg",
       "w": 1600,
       "h": 1143
@@ -1024,7 +1024,7 @@
       "codigo": "f2025-9",
       "archivo": "f2025-9.webp",
       "thumb": "thumbs/f2025-9.webp",
-      "linea": "sin-clasificar",
+      "linea": "princesas-castillos",
       "origen": "F2025 (9).jpg",
       "w": 1600,
       "h": 1143
@@ -1033,7 +1033,7 @@
       "codigo": "f2025-90",
       "archivo": "f2025-90.webp",
       "thumb": "thumbs/f2025-90.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F2025 (90).jpeg",
       "w": 1600,
       "h": 1144
@@ -1042,7 +1042,7 @@
       "codigo": "f2025-91",
       "archivo": "f2025-91.webp",
       "thumb": "thumbs/f2025-91.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (91).jpg",
       "w": 1600,
       "h": 1143
@@ -1051,7 +1051,7 @@
       "codigo": "f2025-92",
       "archivo": "f2025-92.webp",
       "thumb": "thumbs/f2025-92.webp",
-      "linea": "sin-clasificar",
+      "linea": "dulces",
       "origen": "F2025 (92).jpeg",
       "w": 1139,
       "h": 1600
@@ -1060,7 +1060,7 @@
       "codigo": "f2025-92-2",
       "archivo": "f2025-92-2.webp",
       "thumb": "thumbs/f2025-92-2.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (92).jpg",
       "w": 1600,
       "h": 1143
@@ -1069,7 +1069,7 @@
       "codigo": "f2025-93",
       "archivo": "f2025-93.webp",
       "thumb": "thumbs/f2025-93.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (93).jpeg",
       "w": 1600,
       "h": 1063
@@ -1078,7 +1078,7 @@
       "codigo": "f2025-95",
       "archivo": "f2025-95.webp",
       "thumb": "thumbs/f2025-95.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (95).jpg",
       "w": 1600,
       "h": 1143
@@ -1087,7 +1087,7 @@
       "codigo": "f2025-96",
       "archivo": "f2025-96.webp",
       "thumb": "thumbs/f2025-96.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F2025 (96).jpeg",
       "w": 1600,
       "h": 1063
@@ -1096,7 +1096,7 @@
       "codigo": "f2025-97",
       "archivo": "f2025-97.webp",
       "thumb": "thumbs/f2025-97.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (97).jpg",
       "w": 1600,
       "h": 1143
@@ -1105,7 +1105,7 @@
       "codigo": "f2025-98",
       "archivo": "f2025-98.webp",
       "thumb": "thumbs/f2025-98.webp",
-      "linea": "sin-clasificar",
+      "linea": "transporte",
       "origen": "F2025 (98).jpeg",
       "w": 1600,
       "h": 1063
@@ -1114,7 +1114,7 @@
       "codigo": "f2025-99",
       "archivo": "f2025-99.webp",
       "thumb": "thumbs/f2025-99.webp",
-      "linea": "sin-clasificar",
+      "linea": "bajo-el-mar",
       "origen": "F2025 (99).jpg",
       "w": 1600,
       "h": 1333
@@ -1123,7 +1123,7 @@
       "codigo": "f25-113",
       "archivo": "f25-113.webp",
       "thumb": "thumbs/f25-113.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F25 (113).jpeg",
       "w": 1600,
       "h": 1196
@@ -1132,7 +1132,7 @@
       "codigo": "f25-114",
       "archivo": "f25-114.webp",
       "thumb": "thumbs/f25-114.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F25 (114).jpeg",
       "w": 1600,
       "h": 1196
@@ -1141,7 +1141,7 @@
       "codigo": "f25-116",
       "archivo": "f25-116.webp",
       "thumb": "thumbs/f25-116.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "F25 (116).jpeg",
       "w": 1600,
       "h": 1196
@@ -1150,7 +1150,7 @@
       "codigo": "f25-118",
       "archivo": "f25-118.webp",
       "thumb": "thumbs/f25-118.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F25 (118).jpeg",
       "w": 1600,
       "h": 1196
@@ -1159,7 +1159,7 @@
       "codigo": "f25-119",
       "archivo": "f25-119.webp",
       "thumb": "thumbs/f25-119.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F25 (119).jpeg",
       "w": 1139,
       "h": 1600
@@ -1168,7 +1168,7 @@
       "codigo": "f25-120",
       "archivo": "f25-120.webp",
       "thumb": "thumbs/f25-120.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F25 (120).jpeg",
       "w": 1600,
       "h": 1144
@@ -1177,7 +1177,7 @@
       "codigo": "f25-121",
       "archivo": "f25-121.webp",
       "thumb": "thumbs/f25-121.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F25 (121).jpeg",
       "w": 1600,
       "h": 1139
@@ -1186,7 +1186,7 @@
       "codigo": "f25-122",
       "archivo": "f25-122.webp",
       "thumb": "thumbs/f25-122.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "F25 (122).jpeg",
       "w": 1600,
       "h": 1144
@@ -1195,7 +1195,7 @@
       "codigo": "f25-123",
       "archivo": "f25-123.webp",
       "thumb": "thumbs/f25-123.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "F25 (123).jpeg",
       "w": 1600,
       "h": 1144
@@ -1204,7 +1204,7 @@
       "codigo": "fi25-1",
       "archivo": "fi25-1.webp",
       "thumb": "thumbs/fi25-1.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (1).jpg",
       "w": 1600,
       "h": 1066
@@ -1213,7 +1213,7 @@
       "codigo": "fi25-1-2",
       "archivo": "fi25-1-2.webp",
       "thumb": "thumbs/fi25-1-2.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "FI25 (1).png",
       "w": 1304,
       "h": 804
@@ -1222,7 +1222,7 @@
       "codigo": "fi25-10",
       "archivo": "fi25-10.webp",
       "thumb": "thumbs/fi25-10.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (10).jpg",
       "w": 1580,
       "h": 1054
@@ -1231,7 +1231,7 @@
       "codigo": "fi25-11",
       "archivo": "fi25-11.webp",
       "thumb": "thumbs/fi25-11.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (11).jpg",
       "w": 1600,
       "h": 1067
@@ -1240,7 +1240,7 @@
       "codigo": "fi25-12",
       "archivo": "fi25-12.webp",
       "thumb": "thumbs/fi25-12.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (12).jpg",
       "w": 1600,
       "h": 1067
@@ -1249,7 +1249,7 @@
       "codigo": "fi25-13",
       "archivo": "fi25-13.webp",
       "thumb": "thumbs/fi25-13.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (13).jpg",
       "w": 1440,
       "h": 1123
@@ -1258,7 +1258,7 @@
       "codigo": "fi25-14",
       "archivo": "fi25-14.webp",
       "thumb": "thumbs/fi25-14.webp",
-      "linea": "sin-clasificar",
+      "linea": "arcoiris",
       "origen": "FI25 (14).jpg",
       "w": 1200,
       "h": 800
@@ -1267,7 +1267,7 @@
       "codigo": "fi25-15",
       "archivo": "fi25-15.webp",
       "thumb": "thumbs/fi25-15.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (15).jpg",
       "w": 1233,
       "h": 822
@@ -1276,7 +1276,7 @@
       "codigo": "fi25-2",
       "archivo": "fi25-2.webp",
       "thumb": "thumbs/fi25-2.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (2).jpg",
       "w": 1600,
       "h": 1066
@@ -1285,7 +1285,7 @@
       "codigo": "fi25-3",
       "archivo": "fi25-3.webp",
       "thumb": "thumbs/fi25-3.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (3).jpg",
       "w": 1600,
       "h": 1067
@@ -1294,7 +1294,7 @@
       "codigo": "fi25-4",
       "archivo": "fi25-4.webp",
       "thumb": "thumbs/fi25-4.webp",
-      "linea": "sin-clasificar",
+      "linea": "animalitos-bosque",
       "origen": "FI25 (4).jpg",
       "w": 1600,
       "h": 1067
@@ -1303,7 +1303,7 @@
       "codigo": "fi25-5",
       "archivo": "fi25-5.webp",
       "thumb": "thumbs/fi25-5.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (5).jpg",
       "w": 1600,
       "h": 1067
@@ -1312,7 +1312,7 @@
       "codigo": "fi25-6",
       "archivo": "fi25-6.webp",
       "thumb": "thumbs/fi25-6.webp",
-      "linea": "sin-clasificar",
+      "linea": "flores",
       "origen": "FI25 (6).jpg",
       "w": 1600,
       "h": 1063
@@ -1321,7 +1321,7 @@
       "codigo": "fi25-7",
       "archivo": "fi25-7.webp",
       "thumb": "thumbs/fi25-7.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (7).jpg",
       "w": 1600,
       "h": 1067
@@ -1330,7 +1330,7 @@
       "codigo": "fi25-8",
       "archivo": "fi25-8.webp",
       "thumb": "thumbs/fi25-8.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (8).jpg",
       "w": 1600,
       "h": 1067
@@ -1339,7 +1339,7 @@
       "codigo": "fi25-9",
       "archivo": "fi25-9.webp",
       "thumb": "thumbs/fi25-9.webp",
-      "linea": "sin-clasificar",
+      "linea": "globos-pastel",
       "origen": "FI25 (9).jpg",
       "w": 1600,
       "h": 1067

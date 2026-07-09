@@ -9,10 +9,10 @@
 <meta property="og:title" content="D' Carela Compufoto · Estudio fotográfico en La Romana">
 <meta property="og:description" content="Captamos tus mejores momentos. XV, infantil, graduación, cumpleaños y embarazadas. 2 sucursales en La Romana.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://carelacompufoto.netlify.app/">
-<meta property="og:image" content="https://carelacompufoto.netlify.app/img/logo.webp">
+<meta property="og:url" content="https://erickcarela58-star.github.io/carela-compufoto/">
+<meta property="og:image" content="https://erickcarela58-star.github.io/carela-compufoto/img/logo.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://carelacompufoto.netlify.app/">
+<link rel="canonical" href="https://erickcarela58-star.github.io/carela-compufoto/">
 <link rel="icon" href="img/logo.webp">
 
 <!-- Redirige links antiguos del bot/clientes a /combos cuando traen ?cat= -->
@@ -24,7 +24,9 @@
     var valid = ['xv','infantil','graduacion','cumpleanos','embarazadas'];
     if (valid.indexOf(cat.toLowerCase()) >= 0) {
       // Redirige a combos.html manteniendo la categoría (compat con links antiguos)
-      location.replace('/combos.html?cat=' + cat.toLowerCase());
+      // Ruta RELATIVA (no absoluta): GitHub Pages sirve esto en un subpath
+      // (/carela-compufoto/); con "/combos.html" se rompia (404).
+      location.replace('combos.html?cat=' + cat.toLowerCase());
     }
   }
 })();
@@ -46,7 +48,7 @@ src="https://www.facebook.com/tr?id=1377359270081777&ev=PageView&noscript=1"/></
 <!-- JSON-LD para Google -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"PhotographyBusiness",
- "name":"D' Carela Compufoto","image":"https://carelacompufoto.netlify.app/img/logo.webp",
+ "name":"D' Carela Compufoto","image":"https://erickcarela58-star.github.io/carela-compufoto/img/logo.webp",
  "telephone":["+1-849-524-5620","+1-809-833-7809"],
  "address":[
   {"@type":"PostalAddress","streetAddress":"C/ Juan Pablo Duarte esq. Freddy Prestol Castillo, Villa Hermosa","addressLocality":"La Romana","addressCountry":"DO"},

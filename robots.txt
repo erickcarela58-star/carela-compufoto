@@ -14,4 +14,4 @@ Disallow: /fondos
 Disallow: /fondos.html
 Disallow: /fondos-data.json
 
-Sitemap: https://carelacompufoto.netlify.app/sitemap.xml
+Sitemap: https://erickcarela58-star.github.io/carela-compufoto/sitemap.xml
