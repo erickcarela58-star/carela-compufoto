@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>D' Carela Compufoto</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0712;color:#fff;
+ min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.box{max-width:360px}
+h1{font-size:18px;font-weight:800;margin-bottom:10px}
+p{font-size:13px;color:#c3b6d2;line-height:1.5;margin-bottom:18px}
+a{display:inline-block;background:linear-gradient(135deg,#fff,#c79cff);color:#25133d;font-weight:800;
+ font-size:13px;padding:11px 18px;border-radius:14px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+ <h1>Un momento...</h1>
+ <p id="msg">Redirigiendo a la página correcta.</p>
+ <a id="fallback" href="./" style="display:none">Ir al inicio</a>
+</div>
+<script>
+(function(){
+  var base = '/carela-compufoto';
+  var path = location.pathname;
+  var p = (path.indexOf(base) === 0 ? path.slice(base.length) : path).replace(/\/+$/, '') || '/';
+
+  var exact = {
+    '/combos': 'combos.html',
+    '/precios': 'combos.html',
+    '/fondos': 'fondos.html',
+    '/portafolio': '#portafolio',
+    '/galeria': '#portafolio',
+    '/admin': 'admin-portfolio.html',
+    '/inyector': 'admin-portfolio.html',
+    '/review': '_review_portfolio.html',
+    '/los-mulos': '',
+    '/plaza-artesanal': ''
+  };
+  var cats = ['xv', 'infantil', 'graduacion', 'cumpleanos', 'embarazadas'];
+
+  var target = null;
+  if (Object.prototype.hasOwnProperty.call(exact, p)) {
+    target = exact[p];
+  } else {
+    var m = p.match(/^\/c\/([a-z]+)$/) || p.match(/^\/([a-z]+)$/);
+    if (m && cats.indexOf(m[1]) !== -1) target = 'combos.html?cat=' + m[1];
+  }
+
+  if (target !== null) {
+    location.replace(base + '/' + target);
+  } else {
+    document.getElementById('msg').textContent = 'No encontramos esa página.';
+    document.getElementById('fallback').style.display = 'inline-block';
+  }
+})();
+</script>
+</body>
+</html>
