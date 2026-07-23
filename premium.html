@@ -400,7 +400,7 @@ function openScene(slug){
   if(imgs.length){
     const strip=document.createElement('div');
     strip.innerHTML=`<div class="blk-h">Sesiones reales de ${c.label}</div><div class="blk-s">Trabajo aprobado del estudio. Desliza para ver más.</div>
-      <div class="strip">${imgs.slice(0,14).map(x=>`<img loading="lazy" src="${x.image}" alt="${c.label}">`).join('')}</div>`;
+      <div class="strip">${imgs.slice(0,14).map(x=>`<img src="${x.image}" alt="${c.label}">`).join('')}</div>`;
     body.appendChild(strip);
   }
 
@@ -409,7 +409,7 @@ function openScene(slug){
   if(c.boda){ cb.appendChild(bodaBlock()); }
   else{
     cb.innerHTML=`<div class="blk-h">Combos de ${c.label}</div><div class="blk-s">Precios claros, todo incluido. Desliza entre las opciones.</div>
-      <div class="ccar"><div class="ccar-track" id="ctrack">${(c.combos||[]).map(f=>`<div class="ccombo"><img loading="lazy" src="${IMG}${f}" alt="Combo ${c.label}"></div>`).join('')}</div>
+      <div class="ccar"><div class="ccar-track" id="ctrack">${(c.combos||[]).map(f=>`<div class="ccombo"><img src="${IMG}${f}" alt="Combo ${c.label}"></div>`).join('')}</div>
       <div class="ccar-nav"><button onclick="scrollTrack(-1)">‹</button><button onclick="scrollTrack(1)">›</button></div></div>`;
   }
   body.appendChild(cb);
