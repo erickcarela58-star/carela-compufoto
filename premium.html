@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>D' Carela Compufoto · Reserva tu sesión</title>
+<meta name="theme-color" content="#0a0712">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0712; --bg2:#120c1e; --ink:#fff; --mut:#c8bcd8; --mut2:#8f83a6;
+  --accent:#c79cff; --gold:#e6b980; --line:rgba(255,255,255,.12);
+  --glass:rgba(255,255,255,.06); --glass-b:rgba(255,255,255,.14);
+  --r:20px; --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);
+  line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.serif{font-family:'Georgia','Times New Roman',serif}
+/* ambient blobs */
+.amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.amb i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:float 18s var(--ease) infinite alternate}
+.amb i:nth-child(1){width:460px;height:460px;background:#6d4bd8;top:-120px;left:-100px}
+.amb i:nth-child(2){width:520px;height:520px;background:#b06a2e;bottom:-160px;right:-140px;animation-delay:-6s}
+.amb i:nth-child(3){width:380px;height:380px;background:#a24bce;top:40%;left:55%;animation-delay:-11s;opacity:.32}
+@keyframes float{to{transform:translate(60px,-50px) scale(1.15)}}
+.wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 20px}
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;transition:.4s var(--ease)}
+.nav.solid{background:rgba(10,7,18,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.3px}
+.nav .brand img{width:38px;height:38px;border-radius:10px}
+.nav .navcta{font-size:13px;font-weight:800;padding:9px 16px;border-radius:30px;
+  background:linear-gradient(135deg,#35e777,#20b956);color:#052; box-shadow:0 6px 20px rgba(37,211,102,.32)}
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;
+  transform:scale(1.12);transition:opacity 1.6s ease}
+.hero-bg .slide.on{opacity:1;animation:ken 8s linear forwards}
+@keyframes ken{from{transform:scale(1.12)}to{transform:scale(1.24)}}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(10,7,18,.92) 0%,rgba(10,7,18,.72) 40%,rgba(10,7,18,.35) 100%),
+  linear-gradient(0deg,rgba(10,7,18,.9),transparent 55%)}
+.hero-in{position:relative;z-index:3;max-width:1180px;margin:0 auto;padding:0 22px;width:100%}
+.hkick{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:7px 15px;border-radius:30px;
+  background:var(--glass);backdrop-filter:blur(8px);margin-bottom:22px;opacity:0;animation:up .8s var(--ease) .2s forwards}
+.htitle{font-size:clamp(38px,7vw,74px);line-height:1.04;font-weight:800;letter-spacing:-1px;max-width:14ch}
+.htitle b{color:var(--accent)}
+.hrot{display:block;min-height:1.1em;color:var(--gold)}
+.hsub{font-size:clamp(16px,2.3vw,21px);color:var(--mut);max-width:44ch;margin:22px 0 34px;
+  opacity:0;animation:up .8s var(--ease) .5s forwards}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up .8s var(--ease) .7s forwards}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:40px;
+  cursor:pointer;border:0;transition:.25s var(--ease)}
+.btn.p{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:#160a2b;box-shadow:0 12px 34px rgba(139,92,246,.42)}
+.btn.g{background:var(--glass);color:#fff;border:1px solid var(--glass-b);backdrop-filter:blur(10px)}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(-1px) scale(.98)}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;color:var(--mut2);
+  font-size:12px;letter-spacing:1px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:bob 2s infinite}
+.scroll-hint span{width:22px;height:34px;border:2px solid var(--line);border-radius:14px;position:relative}
+.scroll-hint span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:7px;
+  border-radius:3px;background:var(--gold);animation:dot 1.6s infinite}
+@keyframes bob{50%{transform:translateX(-50%) translateY(7px)}}
+@keyframes dot{50%{transform:translateX(-50%) translateY(9px);opacity:.3}}
+/* dots */
+.hdots{position:absolute;right:24px;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:9px}
+.hdots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);transition:.3s;cursor:pointer}
+.hdots i.on{background:var(--gold);height:22px;border-radius:5px}
+/* ===== reveal ===== */
+.rv{opacity:0;transform:translateY(34px);transition:.9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* ===== TRUST ===== */
+.trust{padding:60px 0 20px}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tcard{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;text-align:center;
+  backdrop-filter:blur(12px)}
+.tcard .n{font-size:clamp(26px,4vw,38px);font-weight:800;color:var(--gold);line-height:1}
+.tcard .l{font-size:13px;color:var(--mut);margin-top:8px;line-height:1.35}
+/* ===== SECTION HEAD ===== */
+.sec{padding:80px 0}
+.shead{text-align:center;max-width:640px;margin:0 auto 44px}
+.skick{font-size:12.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.stitle{font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:-.5px;margin:12px 0 10px;line-height:1.1}
+.ssub{font-size:16px;color:var(--mut)}
+/* ===== CHOOSER (mata-confusión) ===== */
+.chgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.chcard{position:relative;border-radius:24px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;
+  border:1px solid var(--line);transition:.4s var(--ease);background:#1a1226}
+.chcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.7s var(--ease);opacity:.82}
+.chcard::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,7,18,.92),transparent 62%)}
+.chcard .cc-in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px}
+.chcard .cc-t{font-size:22px;font-weight:800}
+.chcard .cc-d{font-size:13px;color:var(--mut);margin-top:3px}
+.chcard .cc-go{margin-top:12px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;
+  color:#160a2b;background:var(--gold);padding:8px 14px;border-radius:30px;opacity:0;transform:translateY(8px);transition:.35s var(--ease)}
+.chcard:hover{transform:translateY(-8px);border-color:var(--glass-b);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.chcard:hover img{transform:scale(1.08);opacity:1}
+.chcard:hover .cc-go{opacity:1;transform:none}
+.chcard .cc-badge{position:absolute;top:14px;right:14px;z-index:2;font-size:10.5px;font-weight:800;letter-spacing:.5px;
+  padding:5px 11px;border-radius:20px;background:var(--accent);color:#160a2b}
+/* ===== SCENE (categoría inmersiva) ===== */
+.scene{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;overflow-x:hidden;
+  opacity:0;visibility:hidden;transform:scale(1.03);transition:.5s var(--ease)}
+.scene.on{opacity:1;visibility:visible;transform:none}
+.scene-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end;overflow:hidden}
+.scene-hero .sbg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.1);animation:ken 12s linear infinite alternate}
+.scene-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),rgba(10,7,18,.4) 55%,rgba(10,7,18,.7))}
+.scene-hero .sh-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 22px 34px;width:100%}
+.scene-back{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:14px 22px;
+  background:rgba(10,7,18,.7);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.scene-back button{background:var(--glass);border:1px solid var(--glass-b);color:#fff;border-radius:30px;
+  padding:9px 16px;font-weight:800;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.sh-kick{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.sh-title{font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-1px;line-height:1}
+.sh-sub{font-size:17px;color:var(--mut);max-width:46ch;margin-top:12px}
+.scene-body{max-width:1180px;margin:0 auto;padding:44px 22px 120px}
+.blk-h{font-size:22px;font-weight:800;margin:0 0 4px}
+.blk-s{font-size:14px;color:var(--mut);margin-bottom:20px}
+/* portfolio strip */
+.strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip img{height:300px;width:auto;border-radius:16px;scroll-snap-align:start;flex:0 0 auto;border:1px solid var(--line)}
+/* combos carousel */
+.ccar{position:relative;margin-top:34px}
+.ccar-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 14px}
+.ccar-track::-webkit-scrollbar{display:none}
+.ccombo{flex:0 0 auto;width:300px;scroll-snap-align:center;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);background:#150e22;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.ccombo img{width:100%;display:block}
+.ccar-nav{display:flex;justify-content:center;gap:10px;margin-top:6px}
+.ccar-nav button{width:44px;height:44px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-b);
+  color:#fff;font-size:18px;cursor:pointer;transition:.25s}
+.ccar-nav button:hover{background:var(--accent);color:#160a2b}
+/* BODA selector */
+.boda-wrap{margin-top:20px;display:grid;grid-template-columns:1fr;gap:16px}
+.boda-cat{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:20px;backdrop-filter:blur(10px)}
+.boda-cat h4{font-size:18px;font-weight:800;margin-bottom:4px}
+.boda-cat .bc-note{font-size:12.5px;color:var(--mut2);margin-bottom:16px}
+.boda-combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.bcombo{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(0,0,0,.2);transition:.3s}
+.bcombo:hover{border-color:var(--glass-b)}
+.bcombo .bc-name{font-size:15px;font-weight:800}
+.bcombo .bc-inc{font-size:12px;color:var(--mut);margin:6px 0 12px;line-height:1.5}
+.bcombo .bc-price{font-size:30px;font-weight:800;color:var(--gold);line-height:1}
+.bcombo .bc-price small{font-size:13px;color:var(--mut2);font-weight:600}
+.bc-itbis{font-size:11px;color:var(--mut2);margin-top:2px}
+.cuadro-row{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.cuadro-row button{font-size:11.5px;font-weight:800;padding:7px 11px;border-radius:20px;cursor:pointer;
+  background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--mut);transition:.2s}
+.cuadro-row button.on{background:var(--accent);color:#160a2b;border-color:transparent}
+.bwa{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;font-weight:800;
+  padding:11px 16px;border-radius:30px;background:linear-gradient(135deg,#35e777,#20b956);color:#052}
+/* scene CTA */
+.scene-cta{margin-top:44px;text-align:center;background:linear-gradient(135deg,rgba(199,156,255,.14),rgba(230,185,128,.1));
+  border:1px solid var(--line);border-radius:26px;padding:40px 24px}
+.scene-cta h3{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin-bottom:8px}
+.scene-cta p{color:var(--mut);margin-bottom:22px}
+.wa-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.wa-btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:14px;padding:14px 22px;border-radius:40px;
+  background:linear-gradient(135deg,#35e777,#20b956);color:#052;box-shadow:0 10px 28px rgba(37,211,102,.34)}
+.wa-btn.alt{background:linear-gradient(135deg,#5ed4ff,#3b82f6);color:#031}
+/* ===== HOW ===== */
+.hows{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.howc{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:26px 20px;backdrop-filter:blur(10px);position:relative}
+.howc .num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#8b5cf6);color:#160a2b;
+  display:grid;place-items:center;font-weight:800;font-size:19px;margin-bottom:16px}
+.howc h4{font-size:16px;font-weight:800;margin-bottom:6px}
+.howc p{font-size:13.5px;color:var(--mut)}
+/* ===== FAQ ===== */
+.faq{max-width:760px;margin:0 auto}
+.qa{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;background:var(--glass);backdrop-filter:blur(8px)}
+.qa summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:700;font-size:16px;display:flex;
+  align-items:center;justify-content:space-between;gap:12px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .ic{transition:.3s;color:var(--gold);font-size:22px;flex:0 0 auto}
+.qa[open] summary .ic{transform:rotate(45deg)}
+.qa .a{padding:0 22px 20px;color:var(--mut);font-size:14.5px;line-height:1.6}
+/* ===== FINAL CTA ===== */
+.final{text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(139,92,246,.22),transparent 70%);
+  border-top:1px solid var(--line);padding:90px 20px}
+.final h2{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-1px;line-height:1.05;max-width:16ch;margin:0 auto 16px}
+.final p{color:var(--mut);font-size:18px;max-width:40ch;margin:0 auto 30px}
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 20px;color:var(--mut2);font-size:13px;text-align:center;line-height:1.9}
+footer b{color:var(--mut)}
+footer a{color:var(--accent)}
+/* ===== responsive ===== */
+@media(max-width:860px){
+  .tgrid,.hows{grid-template-columns:repeat(2,1fr)}
+  .chgrid{grid-template-columns:repeat(2,1fr)}
+  .hdots{display:none}
+  .strip img{height:230px}
+}
+@media(max-width:520px){
+  .chgrid{grid-template-columns:1fr 1fr}
+  .sec{padding:60px 0}
+}
+</style>
+</head>
+<body>
+<div class="amb"><i></i><i></i><i></i></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><img src="img/logo.webp" alt="D' Carela"><span>D' Carela Compufoto</span></a>
+  <a class="navcta" id="navWa" href="#" target="_blank" rel="noopener">Reservar</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-in">
+    <span class="hkick">★ Estudio fotográfico · La Romana</span>
+    <h1 class="htitle">Tus momentos merecen<br><b>quedar para siempre</b><span class="hrot serif" id="hrot"></span></h1>
+    <p class="hsub">Más de 10 años capturando XV, bodas, graduaciones, embarazos y las sonrisas de tus pequeños — con un estilo que emociona.</p>
+    <div class="hbtns">
+      <button class="btn p" onclick="document.getElementById('chooser').scrollIntoView({behavior:'smooth'})">Descubre tu sesión →</button>
+      <a class="btn g" href="#portafolio" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'});return false;">Cómo trabajamos</a>
+    </div>
+  </div>
+  <div class="hdots" id="hdots"></div>
+  <div class="scroll-hint"><span></span>DESLIZA</div>
+</header>
+
+<!-- TRUST -->
+<section class="trust"><div class="wrap">
+  <div class="tgrid">
+    <div class="tcard rv"><div class="n">+10</div><div class="l">años capturando momentos</div></div>
+    <div class="tcard rv"><div class="n">2</div><div class="l">sucursales en La Romana</div></div>
+    <div class="tcard rv"><div class="n">24-72h</div><div class="l">entrega de fotos digitales</div></div>
+    <div class="tcard rv"><div class="n">100%</div><div class="l">sesiones reales, sin filtros falsos</div></div>
+  </div>
+</div></section>
+
+<!-- CHOOSER -->
+<section class="sec" id="chooser"><div class="wrap">
+  <div class="shead rv">
+    <div class="skick">Sin enredos</div>
+    <h2 class="stitle">¿Qué vamos a celebrar?</h2>
+    <p class="ssub">Elige tu ocasión y te mostramos solo lo tuyo: fotos reales, combos y precios claros. Nada de listas interminables.</p>
+  </div>
+  <div class="chgrid" id="chgrid"></div>
+</div></section>
+
+<!-- HOW -->
+<section class="sec" id="how" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.02))"><div class="wrap">
+  <div class="shead rv"><div class="skick">Fácil y sin estrés</div><h2 class="stitle">Cómo reservar tu sesión</h2>
+    <p class="ssub">De la idea a las fotos en tus manos, en 4 pasos.</p></div>
+  <div class="hows">
+    <div class="howc rv"><div class="num">1</div><h4>Elige tu ocasión</h4><p>Toca tu tipo de sesión aquí arriba y mira los combos con precios claros.</p></div>
+    <div class="howc rv"><div class="num">2</div><h4>Escríbenos</h4><p>Un clic te lleva a WhatsApp con el combo listo. Te asesoramos con fecha y detalles.</p></div>
+    <div class="howc rv"><div class="num">3</div><h4>Tu sesión</h4><p>En estudio o en locación. Vestuario, maquillaje y ambiente listos para ti.</p></div>
+    <div class="howc rv"><div class="num">4</div><h4>Recibe tus fotos</h4><p>Digitales en 24-72h e impresiones y cuadros para atesorar en casa.</p></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec"><div class="wrap">
+  <div class="shead rv"><div class="skick">Resolvemos tus dudas</div><h2 class="stitle">Preguntas frecuentes</h2></div>
+  <div class="faq" id="faq"></div>
+</div></section>
+
+<!-- FINAL -->
+<section class="final"><div class="wrap rv">
+  <h2>Tu historia merece <span class="serif" style="color:var(--accent)">contarse bien</span></h2>
+  <p>Escríbenos hoy y aparta tu fecha. Te respondemos por WhatsApp al momento.</p>
+  <div class="wa-row">
+    <a class="wa-btn" id="waMulos" href="#" target="_blank" rel="noopener">📱 Los Mulos · WhatsApp</a>
+    <a class="wa-btn alt" id="waPlaza" href="#" target="_blank" rel="noopener">📱 Plaza Artesanal · WhatsApp</a>
+  </div>
+</div></section>
+
+<footer>
+  <b>D' Carela Compufoto</b> · Captamos tus mejores momentos<br>
+  Sucursal Los Mulos / Villa Hermosa · +1 849-524-5620 &nbsp;·&nbsp; Sucursal Plaza Artesanal · +1 809-833-7809<br>
+  La Romana, RD · Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM<br>
+  <a href="https://instagram.com/dcarela_compufoto" target="_blank" rel="noopener">Instagram</a> ·
+  <a href="https://www.tiktok.com/@carelacompufoto" target="_blank" rel="noopener">TikTok</a>
+</footer>
+
+<!-- SCENE (categoría inmersiva) -->
+<div class="scene" id="scene">
+  <div class="scene-back"><button onclick="closeScene()">‹ Volver</button><span id="sbLabel" style="font-weight:800;font-size:14px;color:var(--mut)"></span></div>
+  <div class="scene-hero"><div class="sbg" id="sbg"></div>
+    <div class="sh-in">
+      <div class="sh-kick" id="shKick"></div>
+      <h2 class="sh-title" id="shTitle"></h2>
+      <p class="sh-sub" id="shSub"></p>
+    </div>
+  </div>
+  <div class="scene-body" id="sceneBody"></div>
+</div>
+
+<script>
+const WA = { mulos:'18495245620', plaza:'18098337809' };
+const waLink = (num,msg)=>`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+document.getElementById('navWa').href = waLink(WA.mulos,'Hola D\' Carela, quiero información para reservar una sesión.');
+document.getElementById('waMulos').href = waLink(WA.mulos,'Hola D\' Carela (Los Mulos), quiero reservar una sesión.');
+document.getElementById('waPlaza').href = waLink(WA.plaza,'Hola D\' Carela (Plaza Artesanal), quiero reservar una sesión.');
+
+// Categorías
+const CATS = [
+  {slug:'xv', label:'XV Años', tagline:'Tu gran noche, en grande', kick:'Quinceañeras', accent:'#cb6d4d',
+   emoji:'👑', combos:['xv-xv-diamante.png','xv-xv-premium.png','xv-xv-especial.png','xv-xv-bsico-plus.png','xv-xv-bsico.png']},
+  {slug:'infantil', label:'Infantil', tagline:'Sonrisas que se guardan para siempre', kick:'Niños y primer añito', accent:'#cb704d',
+   emoji:'🧸', combos:['infantil-golden-memories.png','infantil-luxury-moments.png','infantil-encanto.png','infantil-estrella.png','infantil-alegra.png','infantil-sonrisas.png','infantil-ternura.png','infantil-recuerdos.png']},
+  {slug:'graduacion', label:'Graduación', tagline:'Celebra tu logro con fotos que lo digan todo', kick:'Actos y estudiantes', accent:'#4889d0',
+   emoji:'🎓', combos:['graduacion-plan-popi.png','graduacion-plan-bsico.png','graduacion-plan-econmico.png']},
+  {slug:'cumpleanos', label:'Cumpleaños', tagline:'Tu día especial merece quedar para siempre', kick:'Cualquier edad', accent:'#f22646',
+   emoji:'🎉', combos:['cumpleanos-glamour.png','cumpleanos-premium.png','cumpleanos-elegance.png','cumpleanos-deluxe.png','cumpleanos-favorito.png','cumpleanos-estilo.png','cumpleanos-digital-pro.png','cumpleanos-digital-plus.png','cumpleanos-digital-light.png','cumpleanos-digital-mini.png','cumpleanos-simple.png','cumpleanos-eco-ahorro.png','cumpleanos-eco-bsico.png','cumpleanos-eco-express.png','cumpleanos-eco-mini.png']},
+  {slug:'embarazadas', label:'Embarazadas', tagline:'La espera más hermosa, capturada con amor', kick:'Maternidad', accent:'#cb694d',
+   emoji:'🤰', combos:['embarazadas-maternidad-glamour.png','embarazadas-maternidad-elegance.png','embarazadas-maternidad-favorita.png','embarazadas-maternidad-digital-light.png','embarazadas-maternidad-digital-mini.png','embarazadas-maternidad-eco-express.png','embarazadas-maternidad-eco-mini.png','embarazadas-maternidad-simple.png']},
+  {slug:'boda', label:'Boda', tagline:'El día más importante, para revivirlo siempre', kick:'Bodas · nuevo', accent:'#c79cff',
+   emoji:'💍', boda:true, badge:'Nuevo'},
+];
+const IMG='combos-img/', PBASE='';
+let PORT = [];   // portfolio items
+let BODA = null; // combos-boda-data.json
+
+// ---- Hero rotativo + frases ----
+const HERO_LINES = [' con estilo.',' con emoción.',' para revivirlos.',' de verdad.'];
+(function rot(){ const el=document.getElementById('hrot'); let i=0;
+  setInterval(()=>{ el.style.opacity=0; setTimeout(()=>{ el.textContent=HERO_LINES[i=(i+1)%HERO_LINES.length]; el.style.opacity=1; },250); },2600);
+  el.style.transition='opacity .25s'; el.textContent=HERO_LINES[0];
+})();
+
+fetch('portfolio-data.json').then(r=>r.json()).then(d=>{ PORT=d.filter(x=>x.status==='approved'&&x.public); initHero(); });
+fetch('combos-boda-data.json').then(r=>r.json()).then(d=>{ BODA=d; }).catch(()=>{});
+
+function catImgs(slug){ return PORT.filter(x=>(x.categorySlug||x.category)===slug); }
+function pickVertical(arr){ return arr.filter(x=>(x.orientation==='vertical')||(x.height>x.width)); }
+
+function initHero(){
+  // Mezcla de imágenes llamativas de varias categorías
+  const pool = pickVertical(PORT); const seen=new Set(); const chosen=[];
+  for(const it of pool){ if(chosen.length>=6) break; if(seen.has(it.categorySlug)&&chosen.length<5) continue; seen.add(it.categorySlug); chosen.push(it); }
+  const list = (chosen.length?chosen:pool.slice(0,6)).slice(0,6);
+  const bg=document.getElementById('heroBg'), dots=document.getElementById('hdots');
+  list.forEach((it,i)=>{ const s=document.createElement('div'); s.className='slide'+(i===0?' on':''); s.style.backgroundImage=`url('${it.image}')`; bg.appendChild(s);
+    const dt=document.createElement('i'); dt.className=(i===0?'on':''); dt.onclick=()=>go(i); dots.appendChild(dt); });
+  let cur=0; const slides=bg.children, dd=dots.children;
+  function go(n){ slides[cur].classList.remove('on'); dd[cur].classList.remove('on'); cur=n; slides[cur].classList.add('on'); dd[cur].classList.add('on'); }
+  if(slides.length>1) setInterval(()=>go((cur+1)%slides.length),5000);
+  renderChooser();
+}
+
+function renderChooser(){
+  const grid=document.getElementById('chgrid'); grid.innerHTML='';
+  CATS.forEach(c=>{
+    const imgs=catImgs(c.slug); const rep=(pickVertical(imgs)[0]||imgs[0]);
+    const card=document.createElement('div'); card.className='chcard rv'; card.onclick=()=>openScene(c.slug);
+    const media = rep
+      ? `<img loading="lazy" src="${rep.image}" alt="${c.label}">`
+      : `<div style="position:absolute;inset:0;background:linear-gradient(150deg,${c.accent}66,#160a2b 72%);display:grid;place-items:center;font-size:64px;opacity:.9">${c.emoji}</div>`;
+    card.innerHTML=`${c.badge?`<span class="cc-badge">${c.badge}</span>`:''}
+      ${media}
+      <div class="cc-in"><div class="cc-t">${c.emoji} ${c.label}</div><div class="cc-d">${c.tagline}</div>
+      <span class="cc-go">Ver combos →</span></div>`;
+    grid.appendChild(card);
+  });
+  observe();
+}
+
+// ---- FAQ ----
+const FAQS=[
+  ['¿Cómo reservo mi sesión?','Elige tu ocasión arriba, toca el botón de WhatsApp y coordinamos fecha, combo y detalles. Un abono confirma tu cita.'],
+  ['¿Qué incluye cada combo?','Cada combo detalla las fotos digitales, impresas, cuadros y extras. Las fotos impresas y los artículos salen de las mismas fotos digitales de tu paquete — no se suman aparte.'],
+  ['¿Cuándo recibo mis fotos?','Las fotos digitales se entregan en 24 a 72 horas. Las impresiones, cuadros y álbumes toman unos días adicionales.'],
+  ['¿Tienen vestuario y maquillaje?','Sí. Varias sesiones incluyen vestido, corona y accesorios. El maquillaje es un extra opcional que coordinamos contigo.'],
+  ['¿Puedo hacer la sesión fuera del estudio?','Sí, hacemos sesiones en locación (playa, área verde, iglesia). Pregúntanos por tu tipo de evento.'],
+  ['¿Dónde están ubicados?','Tenemos 2 sucursales en La Romana: Los Mulos / Villa Hermosa y Plaza Artesanal. Elige la que te quede más cerca al escribirnos.'],
+];
+(function faq(){ const el=document.getElementById('faq');
+  el.innerHTML=FAQS.map(([q,a])=>`<details class="qa rv"><summary>${q}<span class="ic">+</span></summary><div class="a">${a}</div></details>`).join(''); })();
+
+// ---- SCENE ----
+function openScene(slug){
+  const c=CATS.find(x=>x.slug===slug); if(!c) return;
+  document.getElementById('sbLabel').textContent=c.label;
+  document.getElementById('shKick').textContent=c.kick;
+  document.getElementById('shTitle').textContent=c.label;
+  document.getElementById('shSub').textContent=c.tagline;
+  const imgs=catImgs(slug);
+  const rep=(pickVertical(imgs)[0]||imgs[0]);
+  const sbg=document.getElementById('sbg');
+  if(rep){ sbg.style.backgroundImage=`url('${rep.image}')`; }
+  else { sbg.style.backgroundImage=`linear-gradient(135deg, ${c.accent}55, #160a2b 70%)`; }
+  document.documentElement.style.setProperty('--accent', c.accent);
+  const body=document.getElementById('sceneBody'); body.innerHTML='';
+
+  // Portafolio strip
+  if(imgs.length){
+    const strip=document.createElement('div');
+    strip.innerHTML=`<div class="blk-h">Sesiones reales de ${c.label}</div><div class="blk-s">Trabajo aprobado del estudio. Desliza para ver más.</div>
+      <div class="strip">${imgs.slice(0,14).map(x=>`<img loading="lazy" src="${x.image}" alt="${c.label}">`).join('')}</div>`;
+    body.appendChild(strip);
+  }
+
+  // Combos
+  const cb=document.createElement('div'); cb.style.marginTop='40px';
+  if(c.boda){ cb.appendChild(bodaBlock()); }
+  else{
+    cb.innerHTML=`<div class="blk-h">Combos de ${c.label}</div><div class="blk-s">Precios claros, todo incluido. Desliza entre las opciones.</div>
+      <div class="ccar"><div class="ccar-track" id="ctrack">${(c.combos||[]).map(f=>`<div class="ccombo"><img loading="lazy" src="${IMG}${f}" alt="Combo ${c.label}"></div>`).join('')}</div>
+      <div class="ccar-nav"><button onclick="scrollTrack(-1)">‹</button><button onclick="scrollTrack(1)">›</button></div></div>`;
+  }
+  body.appendChild(cb);
+
+  // CTA
+  const cta=document.createElement('div'); cta.className='scene-cta';
+  const msg=`Hola D' Carela, vi los combos de ${c.label} y quiero información para agendar.`;
+  cta.innerHTML=`<h3>¿Te gustó algún combo de ${c.label}?</h3><p>Escríbenos y coordinamos tu sesión hoy mismo.</p>
+    <div class="wa-row">
+      <a class="wa-btn" target="_blank" rel="noopener" href="${waLink(WA.mulos,msg+' Sucursal Los Mulos.')}">📱 Los Mulos</a>
+      <a class="wa-btn alt" target="_blank" rel="noopener" href="${waLink(WA.plaza,msg+' Sucursal Plaza Artesanal.')}">📱 Plaza Artesanal</a>
+    </div>`;
+  body.appendChild(cta);
+
+  const sc=document.getElementById('scene'); sc.scrollTop=0; sc.classList.add('on'); document.body.style.overflow='hidden';
+  history.pushState({scene:slug},'', '#'+slug);
+}
+function closeScene(){ document.getElementById('scene').classList.remove('on'); document.body.style.overflow='';
+  document.documentElement.style.setProperty('--accent','#c79cff'); if(location.hash) history.pushState({},'',location.pathname); }
+window.addEventListener('popstate',()=>{ if(document.getElementById('scene').classList.contains('on')) closeScene(); });
+window.scrollTrack=function(dir){ const t=document.getElementById('ctrack'); if(t) t.scrollBy({left:dir*320,behavior:'smooth'}); };
+
+// ---- BODA interactivo (selector de cuadro) ----
+function bodaBlock(){
+  const w=document.createElement('div');
+  if(!BODA){ w.innerHTML='<div class="blk-h">Combos de Boda</div><div class="blk-s">Cargando…</div>'; return w; }
+  w.innerHTML=`<div class="blk-h">Combos de Boda</div>
+    <div class="blk-s">Elige el paquete y el tamaño del cuadro — el precio se ajusta solo. ${BODA.nota||''}</div>`;
+  const wrap=document.createElement('div'); wrap.className='boda-wrap';
+  Object.entries(BODA.categorias).forEach(([slug,cat])=>{
+    const box=document.createElement('div'); box.className='boda-cat';
+    box.innerHTML=`<h4>${cat.label}</h4><div class="bc-note">Incluye: ${BODA.incluye_fijo.join(' · ')} + las fotos digitales del paquete.</div>`;
+    const grid=document.createElement('div'); grid.className='boda-combos';
+    cat.combos.forEach((cm,idx)=>{
+      const sizes=BODA.cuadros; const def=sizes[0];
+      const card=document.createElement('div'); card.className='bcombo';
+      const pid=slug+'_'+idx;
+      card.innerHTML=`<div class="bc-name">${cm.digitales} fotos digitales</div>
+        <div class="bc-inc">Cuadro seleccionable · llaveros · tazas · impresas</div>
+        <div class="cuadro-row">${sizes.map(s=>`<button data-p="${pid}" data-s="${s}" class="${s===def?'on':''}">${s}</button>`).join('')}</div>
+        <div class="bc-price" id="price_${pid}">RD$ ${fmt(cm.precios_por_cuadro[def])}</div>
+        <div class="bc-itbis">ITBIS incluido · cuadro ${def}</div>
+        <a class="bwa" target="_blank" rel="noopener" id="wa_${pid}" href="#">📱 Reservar este combo</a>`;
+      grid.appendChild(card);
+      card._data=cm;
+    });
+    box.appendChild(grid); wrap.appendChild(box);
+  });
+  w.appendChild(wrap);
+  // wire cuadro buttons after mount
+  setTimeout(()=>{ w.querySelectorAll('.cuadro-row button').forEach(b=>{
+    b.onclick=()=>{
+      const pid=b.dataset.p, s=b.dataset.s;
+      w.querySelectorAll(`.cuadro-row button[data-p="${pid}"]`).forEach(x=>x.classList.toggle('on',x===b));
+      const card=b.closest('.bcombo'); const price=card._data.precios_por_cuadro[s];
+      card.querySelector('.bc-price').textContent='RD$ '+fmt(price);
+      card.querySelector('.bc-itbis').textContent='ITBIS incluido · cuadro '+s;
+      const msg=`Hola D' Carela, quiero el combo de boda "${card._data.digitales} fotos digitales" con cuadro ${s} (RD$ ${fmt(price)}, ITBIS incluido).`;
+      card.querySelector('.bwa').href=waLink(WA.mulos,msg);
+    };
+  });
+  // set initial wa links
+  w.querySelectorAll('.bcombo').forEach(card=>{
+    const s=BODA.cuadros[0], price=card._data.precios_por_cuadro[s];
+    const msg=`Hola D' Carela, quiero el combo de boda "${card._data.digitales} fotos digitales" con cuadro ${s} (RD$ ${fmt(price)}, ITBIS incluido).`;
+    card.querySelector('.bwa').href=waLink(WA.mulos,msg);
+  }); },30);
+  return w;
+}
+function fmt(n){ return Number(n).toLocaleString('es-DO'); }
+
+// ---- reveal on scroll ----
+let io;
+function observe(){ if(io) io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+  document.querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el));
+}
+observe();
+// nav solid
+addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('solid', scrollY>60); },{passive:true});
+</script>
+</body>
+</html>

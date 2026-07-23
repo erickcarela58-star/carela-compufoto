@@ -1,0 +1,194 @@
+{
+  "nota": "Precios con ITBIS incluido (base ×1.18, redondeado a $50). Cuadros normalizados +950/+1800/+3000/+4000.",
+  "incluye_fijo": [
+    "1 cuadro (el elegido)",
+    "2 llaveros",
+    "2 tazas personalizadas",
+    "10 fotos impresas 5x7"
+  ],
+  "cuadros": [
+    "8x11",
+    "11x14",
+    "13x19",
+    "16x20",
+    "17x22"
+  ],
+  "categorias": {
+    "estudio": {
+      "label": "Combo Estudio",
+      "combos": [
+        {
+          "nombre": "10 fotos digitales",
+          "digitales": 10,
+          "precios_por_cuadro": {
+            "8x11": 5600,
+            "11x14": 6750,
+            "13x19": 7750,
+            "16x20": 9150,
+            "17x22": 10300
+          },
+          "desde": 5600
+        },
+        {
+          "nombre": "15 fotos digitales",
+          "digitales": 15,
+          "precios_por_cuadro": {
+            "8x11": 7100,
+            "11x14": 8200,
+            "13x19": 9200,
+            "16x20": 10600,
+            "17x22": 11800
+          },
+          "desde": 7100
+        },
+        {
+          "nombre": "25 fotos digitales",
+          "digitales": 25,
+          "precios_por_cuadro": {
+            "8x11": 9450,
+            "11x14": 10550,
+            "13x19": 11550,
+            "16x20": 13000,
+            "17x22": 14150
+          },
+          "desde": 9450
+        },
+        {
+          "nombre": "30 fotos digitales",
+          "digitales": 30,
+          "precios_por_cuadro": {
+            "8x11": 10600,
+            "11x14": 11750,
+            "13x19": 12750,
+            "16x20": 14150,
+            "17x22": 15350
+          },
+          "desde": 10600
+        }
+      ]
+    },
+    "civil-estudio": {
+      "label": "Boda Civil y Estudio",
+      "combos": [
+        {
+          "nombre": "25 fotos digitales",
+          "digitales": 25,
+          "precios_por_cuadro": {
+            "8x11": 11200,
+            "11x14": 12350,
+            "13x19": 13350,
+            "16x20": 14750,
+            "17x22": 15950
+          },
+          "desde": 11200
+        },
+        {
+          "nombre": "30 fotos digitales",
+          "digitales": 30,
+          "precios_por_cuadro": {
+            "8x11": 12400,
+            "11x14": 13500,
+            "13x19": 14500,
+            "16x20": 15950,
+            "17x22": 17100
+          },
+          "desde": 12400
+        },
+        {
+          "nombre": "35 fotos digitales",
+          "digitales": 35,
+          "precios_por_cuadro": {
+            "8x11": 13550,
+            "11x14": 14700,
+            "13x19": 15700,
+            "16x20": 17100,
+            "17x22": 18300
+          },
+          "desde": 13550
+        }
+      ]
+    },
+    "playa": {
+      "label": "Boda Civil, Playa o Área Verde",
+      "combos": [
+        {
+          "nombre": "25 fotos digitales",
+          "digitales": 25,
+          "precios_por_cuadro": {
+            "8x11": 12400,
+            "11x14": 13500,
+            "13x19": 14500,
+            "16x20": 15950,
+            "17x22": 17100
+          },
+          "desde": 12400
+        },
+        {
+          "nombre": "35 fotos digitales",
+          "digitales": 35,
+          "precios_por_cuadro": {
+            "8x11": 15350,
+            "11x14": 16450,
+            "13x19": 17450,
+            "16x20": 18900,
+            "17x22": 20050
+          },
+          "desde": 15350
+        },
+        {
+          "nombre": "45 fotos digitales",
+          "digitales": 45,
+          "precios_por_cuadro": {
+            "8x11": 17100,
+            "11x14": 18250,
+            "13x19": 19250,
+            "16x20": 20650,
+            "17x22": 21850
+          },
+          "desde": 17100
+        }
+      ]
+    },
+    "preboda": {
+      "label": "Pre-boda, Ceremonia y Recepción",
+      "combos": [
+        {
+          "nombre": "35 fotos digitales",
+          "digitales": 35,
+          "precios_por_cuadro": {
+            "8x11": 18900,
+            "11x14": 20000,
+            "13x19": 21000,
+            "16x20": 22400,
+            "17x22": 23600
+          },
+          "desde": 18900
+        },
+        {
+          "nombre": "45 fotos digitales",
+          "digitales": 45,
+          "precios_por_cuadro": {
+            "8x11": 20650,
+            "11x14": 21750,
+            "13x19": 22750,
+            "16x20": 24200,
+            "17x22": 25350
+          },
+          "desde": 20650
+        },
+        {
+          "nombre": "60 fotos digitales",
+          "digitales": 60,
+          "precios_por_cuadro": {
+            "8x11": 22700,
+            "11x14": 23850,
+            "13x19": 24850,
+            "16x20": 26250,
+            "17x22": 27450
+          },
+          "desde": 22700
+        }
+      ]
+    }
+  }
+}
