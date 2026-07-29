@@ -1,0 +1,554 @@
+{
+ "xv": [
+  {
+   "name": "XV Diamante",
+   "price": "35.350",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "70 fotos digitales en total",
+   "items": [
+    "20 - fotos impresas 6x8",
+    "2 - tazas personalizadas",
+    "2 - fotos impresas 8x11",
+    "6 - llaveros",
+    "1 - cuadro 13x19",
+    "1 - álbum 8x12",
+    "1 - camiseta",
+    "1 - coledildine",
+    "1 - botella",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido · Corona · Cretona · Tutú · Maquillaje · Número globo 15",
+   "bg": "img/pf_xv_4.webp"
+  },
+  {
+   "name": "XV Premium",
+   "price": "27.050",
+   "badge": "",
+   "total_chip": "55 fotos digitales en total",
+   "items": [
+    "10 - fotos impresas 6x8",
+    "2 - fotos impresas 8x11",
+    "1 - camiseta",
+    "1 - cuadro 13x19",
+    "1 - álbum 8x11",
+    "4 - llaveros",
+    "1 - botella",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido · Corona · Cretona · Tutú · Maquillaje · Número globo 15",
+   "bg": "img/pf_xv_5.webp"
+  },
+  {
+   "name": "XV Especial",
+   "price": "19.950",
+   "badge": "",
+   "total_chip": "25 fotos digitales en total",
+   "items": [
+    "8 - fotos impresas 5x7",
+    "2 - fotos impresas 8x11",
+    "2 - llaveros",
+    "1 - camiseta",
+    "1 - cuadro 11x14",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido · Corona · Cretona · Tutú · Maquillaje · Número globo 15",
+   "bg": "img/pf_xv_2.webp"
+  },
+  {
+   "name": "XV Básico Plus",
+   "price": "10.050",
+   "badge": "",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "10 - fotos impresas 5x7",
+    "1 - cuadro 11x14",
+    "1 - camiseta",
+    "2 - llaveros",
+    "2 - cambios de ropa",
+    "2 - tazas personalizadas",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_xv_3.webp"
+  },
+  {
+   "name": "XV Básico",
+   "price": "5.000",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "5 - fotos impresas 5x7",
+    "1 - cuadro 8.5x11",
+    "2 - llaveros",
+    "2 - cambios de ropa",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_xv_1.webp"
+  }
+ ],
+ "infantil": [
+  {
+   "name": "Golden Memories",
+   "price": "9.450",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "12 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 16x20",
+    "8 - fotos impresas 5x7",
+    "4 - llaveros",
+    "6 - fondos digitales",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_3.webp"
+  },
+  {
+   "name": "Luxury Moments",
+   "price": "8.500",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "7 - fotos impresas 5x7",
+    "3 - llaveros",
+    "4 - fondos digitales",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_6.webp"
+  },
+  {
+   "name": "Estrella",
+   "price": "6.200",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "5 - fotos impresas 5x7",
+    "4 - fotos impresas 2x3",
+    "2 - llaveros",
+    "4 - fondos digitales",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_10.webp"
+  },
+  {
+   "name": "Ternura",
+   "price": "4.150",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "3 - fotos impresas 5x7",
+    "2 - llaveros",
+    "1 - fondo digital",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_5.webp"
+  },
+  {
+   "name": "Encanto",
+   "price": "4.050",
+   "badge": "",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 8x11",
+    "3 - fotos impresas 5x7",
+    "2 - llaveros",
+    "2 - fondos digitales",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_4.webp"
+  },
+  {
+   "name": "Alegría",
+   "price": "2.950",
+   "badge": "",
+   "total_chip": "4 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 8x11",
+    "3 - fotos impresas 5x7",
+    "1 - llavero",
+    "1 - fondo digital",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_8.webp"
+  },
+  {
+   "name": "Recuerdos",
+   "price": "2.600",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "3 - fotos impresas 5x7",
+    "1 - foto enmarcada 8x11",
+    "1 - fondo digital",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_0.webp"
+  },
+  {
+   "name": "Sonrisas",
+   "price": "2.150",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "2 - fotos impresas 5x7",
+    "1 - foto enmarcada 6x8",
+    "1 - fondo digital",
+    "1 - álbum digital online"
+   ],
+   "incluye": "",
+   "bg": "img/pf_inf_9.webp"
+  }
+ ],
+ "graduacion": [
+  {
+   "name": "Plan Popi",
+   "price": "10.400",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "1 - álbum 6x8 personalizado",
+    "1 - termo personalizado",
+    "1 - 13x19 enmarcada",
+    "2 - llaveros de mica",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Toga · Birrete · Carpeta · Anillo de graduación",
+   "bg": "img/pf_grad_3.webp"
+  },
+  {
+   "name": "Plan Básico",
+   "price": "5.800",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - 11x14 enmarcada",
+    "2 - llaveros de mica",
+    "1 - taza personalizada",
+    "5 - fotos 5x7",
+    "2 - fotos 2x3",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Toga · Birrete · Carpeta · Anillo de graduación",
+   "bg": "img/pf_grad_6.webp"
+  },
+  {
+   "name": "Plan Económico",
+   "price": "2.950",
+   "badge": "",
+   "total_chip": "4 fotos digitales en total",
+   "items": [
+    "4 - fotos 5x7",
+    "2 - fotos 2x3",
+    "1 - 11x14 enmarcada",
+    "1 - llavero de mica",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Toga · Birrete · Carpeta · Anillo de graduación",
+   "bg": "img/pf_grad_0.webp"
+  }
+ ],
+ "cumpleanos": [
+  {
+   "name": "Deluxe",
+   "price": "10.050",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "6 - fotos impresas 6x8",
+    "2 - llaveros",
+    "2 - fotos 2x3",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_9.webp"
+  },
+  {
+   "name": "Glamour",
+   "price": "6.600",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "5 - fotos impresas 5x7",
+    "1 - foto impresa 8x11",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_12.webp"
+  },
+  {
+   "name": "Elegance",
+   "price": "5.850",
+   "badge": "",
+   "total_chip": "5 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x9",
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_36.webp"
+  },
+  {
+   "name": "Premium",
+   "price": "8.150",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "3 - fotos impresas 6x8",
+    "4 - llaveros",
+    "6 - fotos 2x3",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_2.webp"
+  },
+  {
+   "name": "Favorito",
+   "price": "5.700",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "5 - fotos impresas 5x7",
+    "1 - foto impresa 8x11",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_19.webp"
+  },
+  {
+   "name": "Simple",
+   "price": "4.750",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_7.webp"
+  },
+  {
+   "name": "Estilo",
+   "price": "4.350",
+   "badge": "",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_3.webp"
+  },
+  {
+   "name": "Digital Plus",
+   "price": "7.400",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "25 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_17.webp"
+  },
+  {
+   "name": "Digital Pro",
+   "price": "4.650",
+   "badge": "",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_11.webp"
+  },
+  {
+   "name": "Digital Light",
+   "price": "3.100",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_15.webp"
+  },
+  {
+   "name": "Digital Mini",
+   "price": "2.050",
+   "badge": "",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_xv_8.webp"
+  },
+  {
+   "name": "Eco Básico",
+   "price": "6.150",
+   "badge": "★ MÁS COMPLETO",
+   "total_chip": "15 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "5 - fotos impresas 5x7",
+    "2 - llaveros",
+    "4 - fotos 2x3",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_xv_7.webp"
+  },
+  {
+   "name": "Eco Ahorro",
+   "price": "3.700",
+   "badge": "",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - cuadro 8x11",
+    "5 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_inf_14.webp"
+  },
+  {
+   "name": "Eco Express",
+   "price": "2.350",
+   "badge": "",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_34.webp"
+  },
+  {
+   "name": "Eco Mini",
+   "price": "1.700",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "3 - fotos impresas 5x7"
+   ],
+   "incluye": "Bizcocho artificial, Flores o detalles Personalizados.",
+   "bg": "img/pf_cumple_35.webp"
+  }
+ ],
+ "embarazadas": [
+  {
+   "name": "Maternidad Glamour",
+   "price": "6.600",
+   "badge": "MAS COMPLETO",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "5 - fotos impresas 5x7",
+    "1 - foto impresa 8x11",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_6.webp"
+  },
+  {
+   "name": "Maternidad Elegance",
+   "price": "5.850",
+   "badge": "",
+   "total_chip": "5 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x9",
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_7.webp"
+  },
+  {
+   "name": "Maternidad Favorita",
+   "price": "5.700",
+   "badge": "MAS COMPLETO",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 11x14",
+    "5 - fotos impresas 5x7",
+    "1 - foto impresa 8x11",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_10.webp"
+  },
+  {
+   "name": "Maternidad Simple",
+   "price": "4.750",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "1 - foto enmarcada 13x19",
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_13.webp"
+  },
+  {
+   "name": "Maternidad Digital Light",
+   "price": "3.100",
+   "badge": "MAS COMPLETO",
+   "total_chip": "10 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_2.webp"
+  },
+  {
+   "name": "Maternidad Digital Mini",
+   "price": "2.050",
+   "badge": "",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_5.webp"
+  },
+  {
+   "name": "Maternidad Eco Express",
+   "price": "2.350",
+   "badge": "MAS COMPLETO",
+   "total_chip": "6 fotos digitales en total",
+   "items": [
+    "3 - fotos impresas 5x7",
+    "1 - álbum digital online"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_15.webp"
+  },
+  {
+   "name": "Maternidad Eco Mini",
+   "price": "1.700",
+   "badge": "",
+   "total_chip": "3 fotos digitales en total",
+   "items": [
+    "3 - fotos impresas 5x7"
+   ],
+   "incluye": "Vestido - Tutu - Tiara",
+   "bg": "img/pf_emb_3.webp"
+  }
+ ]
+}

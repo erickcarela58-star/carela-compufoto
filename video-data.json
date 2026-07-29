@@ -1,0 +1,27 @@
+{
+ "boda": [
+  "video/vid_boda_1.mp4",
+  "video/vid_boda_2.mp4",
+  "video/vid_boda_3.mp4"
+ ],
+ "cumple": [
+  "video/vid_cumple_1.mp4",
+  "video/vid_cumple_2.mp4",
+  "video/vid_cumple_3.mp4"
+ ],
+ "emb": [
+  "video/vid_emb_1.mp4",
+  "video/vid_emb_2.mp4",
+  "video/vid_emb_3.mp4"
+ ],
+ "grad": [
+  "video/vid_grad_1.mp4",
+  "video/vid_grad_2.mp4",
+  "video/vid_grad_3.mp4"
+ ],
+ "xv": [
+  "video/vid_xv_1.mp4",
+  "video/vid_xv_2.mp4",
+  "video/vid_xv_3.mp4"
+ ]
+}

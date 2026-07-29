@@ -15,7 +15,7 @@
   ],
   "categorias": {
     "estudio": {
-      "label": "Combo Estudio",
+      "label": "Boda en Estudio",
       "combos": [
         {
           "nombre": "10 fotos digitales",
@@ -68,7 +68,7 @@
       ]
     },
     "civil-estudio": {
-      "label": "Boda Civil y Estudio",
+      "label": "Civil + Estudio",
       "combos": [
         {
           "nombre": "25 fotos digitales",
@@ -109,7 +109,7 @@
       ]
     },
     "playa": {
-      "label": "Boda Civil, Playa o Área Verde",
+      "label": "Civil, Playa o Área Verde",
       "combos": [
         {
           "nombre": "25 fotos digitales",
@@ -150,7 +150,7 @@
       ]
     },
     "preboda": {
-      "label": "Pre-boda, Ceremonia y Recepción",
+      "label": "Preboda, Ceremonia y Recepción",
       "combos": [
         {
           "nombre": "35 fotos digitales",
