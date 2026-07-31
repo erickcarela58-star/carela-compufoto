@@ -143,18 +143,30 @@ const DRESSES=[['Vestido Rojo','vestido_rojo','Un clásico intenso que resalta e
 function initExpandable(){
   const host=$('#exg');if(!host)return;
   const list=DRESSES.map(d=>IMG+d[1]+'.webp');
-  host.innerHTML=DRESSES.map((d,i)=>
-    '<div class="exg-item" data-i="'+i+'">'+
-      '<img src="'+IMG+d[1]+'.webp" alt="'+d[0]+'" loading="lazy">'+
-      '<div class="shade"></div><span class="vname">'+d[0]+'</span>'+
-      '<div class="zoom">⤢</div>'+
-      '<div class="cap"><h3>'+d[0]+'</h3><small>'+d[2]+'</small></div>'+
-    '</div>').join('');
-  $$('.exg-item',host).forEach(it=>{
-    const i=+it.dataset.i;
-    $('.zoom',it).addEventListener('click',e=>{e.stopPropagation();openLB(list,i);});
-    it.addEventListener('click',()=>openLB(list,i));
-  });
+  host.innerHTML=
+    '<button class="dcar-nav prev" type="button" aria-label="Vestido anterior">‹</button>'+
+    '<div class="dcar-track">'+
+      DRESSES.map((d,i)=>
+        '<figure class="dcar-slide" data-i="'+i+'">'+
+          '<img src="'+IMG+d[1]+'.webp" alt="'+d[0]+'" loading="lazy">'+
+          '<span class="dcar-zoom">⤢</span>'+
+          '<figcaption><h3>'+d[0]+'</h3><small>'+d[2]+'</small></figcaption>'+
+        '</figure>').join('')+
+    '</div>'+
+    '<button class="dcar-nav next" type="button" aria-label="Vestido siguiente">›</button>'+
+    '<div class="dcar-dots">'+DRESSES.map((_,i)=>'<button class="dcar-dot'+(i===0?' on':'')+'" type="button" data-i="'+i+'" aria-label="Ir al vestido '+(i+1)+'"></button>').join('')+'</div>';
+  const track=$('.dcar-track',host), slides=$$('.dcar-slide',host), dots=$$('.dcar-dot',host);
+  const base=()=>slides[0]?slides[0].offsetLeft:0;
+  const current=()=>{const x=track.scrollLeft+base();let best=0,bd=1e9;slides.forEach((s,i)=>{const d=Math.abs(s.offsetLeft-x);if(d<bd){bd=d;best=i;}});return best;};
+  const setDots=i=>dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  // scrollTo({behavior:'smooth'}) es no-op con scroll-snap mandatory en Chromium; usamos scroll directo (el snap alinea).
+  const go=i=>{i=Math.max(0,Math.min(slides.length-1,i));if(slides[i]){track.scrollLeft=slides[i].offsetLeft-base();setDots(i);}};
+  $('.dcar-nav.prev',host).addEventListener('click',()=>go(current()-1));
+  $('.dcar-nav.next',host).addEventListener('click',()=>go(current()+1));
+  dots.forEach(dt=>dt.addEventListener('click',()=>go(+dt.dataset.i)));
+  slides.forEach(s=>s.addEventListener('click',()=>openLB(list,+s.dataset.i)));
+  let raf;
+  track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const c=current();dots.forEach((d,i)=>d.classList.toggle('on',i===c));});},{passive:true});
 }
 
 /* ================= ÁLBUM DIGITAL (galería demo) ================= */
@@ -407,7 +419,16 @@ function initBoda(BODA){
       '<h3>'+identity.title+'</h3><p class="boda-count">'+c.digitales+' fotos digitales editadas</p>'+
       '<p class="boda-copy">'+identity.copy+'</p>'+
       '<div class="boda-size"><div class="boda-size-head"><b>Tamaño del cuadro incluido</b><span>Conserva el mismo combo; cambia únicamente el cuadro y el precio.</span></div>'+
-      '<div class="boda-size-options" role="group" aria-label="Tamaño del cuadro">'+BODA.cuadros.map((q,qi)=>'<button type="button" class="boda-size-btn'+(qi===0?' on':'')+'" data-q="'+q+'" aria-pressed="'+(qi===0?'true':'false')+'">'+q+'</button>').join('')+'</div></div>'+
+      '<div class="cuadro-dd">'+
+        '<button type="button" class="cuadro-dd-btn" aria-haspopup="listbox" aria-expanded="false">'+
+          '<span class="cdd-lbl">Cuadro</span><span class="cdd-val">'+cuadro+'</span><span class="cdd-ic" aria-hidden="true">▾</span>'+
+        '</button>'+
+        '<div class="cuadro-dd-menu" role="listbox" aria-label="Tamaño del cuadro">'+
+          BODA.cuadros.map((q,qi)=>'<button type="button" role="option" class="cuadro-opt'+(qi===0?' on':'')+'" data-q="'+q+'" aria-selected="'+(qi===0?'true':'false')+'" style="--i:'+qi+'">'+
+            '<span class="cdd-dot" aria-hidden="true"></span><span class="cdd-q">'+q+'</span>'+
+            '<span class="cdd-p">RD$ '+c.precios_por_cuadro[q].toLocaleString('es-DO')+'</span></button>').join('')+
+        '</div>'+
+      '</div></div>'+
       '<div class="boda-price"><span>Precio del combo</span><strong><small>RD$</small> <span class="val">'+price.toLocaleString('es-DO')+'</span></strong></div>'+
       '<ul class="boda-includes"><li>'+c.digitales+' digitales</li><li class="frame">1 cuadro '+cuadro+'</li><li>10 impresas 5x7</li><li>2 tazas</li><li>2 llaveros</li></ul>'+
       '<button class="lgbtn wa boda-reserve" data-reserve data-cat="boda" data-combo="'+escA(identity.title+' · '+c.digitales+' fotos digitales')+'" data-price="RD$ '+escA(price.toLocaleString('es-DO'))+'" data-extra="'+escA(BODA.categorias[cat].label+' · Cuadro '+cuadro)+'">Reservar este combo</button>'+
@@ -416,13 +437,29 @@ function initBoda(BODA){
   function wireCards(combos){
     $$('.boda-card',grid).forEach((el,i)=>{
       const combo=combos[i],value=$('.boda-price .val',el),frame=$('.boda-includes .frame',el),reserve=$('.boda-reserve',el);
-      $$('.boda-size-btn',el).forEach(btn=>btn.onclick=()=>{
-        const q=btn.dataset.q,price=combo.precios_por_cuadro[q];
-        $$('.boda-size-btn',el).forEach(x=>{const on=x===btn;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+      const dd=$('.cuadro-dd',el),btn=$('.cuadro-dd-btn',el),val=$('.cdd-val',el);
+      if(!dd)return;
+      const close=()=>{dd.classList.remove('open');btn.setAttribute('aria-expanded','false');};
+      btn.onclick=e=>{
+        e.stopPropagation();
+        const wasOpen=dd.classList.contains('open');
+        $$('.cuadro-dd.open',grid).forEach(o=>{o.classList.remove('open');const b=$('.cuadro-dd-btn',o);if(b)b.setAttribute('aria-expanded','false');});
+        if(!wasOpen){dd.classList.add('open');btn.setAttribute('aria-expanded','true');}
+      };
+      $$('.cuadro-opt',el).forEach(opt=>opt.onclick=e=>{
+        e.stopPropagation();
+        const q=opt.dataset.q,price=combo.precios_por_cuadro[q];
+        $$('.cuadro-opt',el).forEach(x=>{const on=x===opt;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false');});
+        val.textContent=q;
         value.textContent=price.toLocaleString('es-DO');frame.textContent='1 cuadro '+q;
         reserve.dataset.price='RD$ '+price.toLocaleString('es-DO');reserve.dataset.extra=BODA.categorias[cat].label+' · Cuadro '+q;
+        close();
       });
     });
+    if(!wireCards._doc){wireCards._doc=1;
+      document.addEventListener('click',()=>$$('.cuadro-dd.open').forEach(o=>{o.classList.remove('open');const b=$('.cuadro-dd-btn',o);if(b)b.setAttribute('aria-expanded','false');}));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.cuadro-dd.open').forEach(o=>{o.classList.remove('open');const b=$('.cuadro-dd-btn',o);if(b)b.setAttribute('aria-expanded','false');});});
+    }
   }
   function render(){const combos=BODA.categorias[cat].combos;grid.innerHTML=combos.map(card).join('');wireCards(combos);observeAnims(grid);}
   if(pills){pills.innerHTML=Object.keys(BODA.categorias).map((k,i)=>'<button class="pill'+(i===0?' on':'')+'" data-k="'+k+'">'+BODA.categorias[k].label+'</button>').join('');

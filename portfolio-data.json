@@ -1415,9 +1415,9 @@
   "categorySlug": "embarazadas",
   "categoryLabel": "Embarazadas",
   "approved": true,
-  "width": 1200,
+  "width": 600,
   "height": 800,
-  "orientation": "horizontal"
+  "orientation": "vertical"
  },
  {
   "id": "pf_grad_0",

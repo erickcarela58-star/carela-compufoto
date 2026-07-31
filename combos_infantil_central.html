@@ -135,7 +135,7 @@ a{text-decoration:none;color:inherit}
 .combo .cprice b{font-size:27px;font-weight:800;letter-spacing:-1px;
  background:linear-gradient(120deg,#fff,var(--ca));-webkit-background-clip:text;
  -webkit-text-fill-color:transparent;background-clip:text}
-.combo .cprice::after{content:"ITBIS incluido (18%)";flex:0 0 100%;font-size:9px;font-weight:850;letter-spacing:.4px;
+.combo .cprice::after{content:"";flex:0 0 100%;font-size:9px;font-weight:850;letter-spacing:.4px;
  color:rgba(255,255,255,.72);text-transform:uppercase;line-height:1.1;margin-top:-3px}
 .cinc{list-style:none;margin:0 0 7px}
 .cinc.cols{column-count:2;column-gap:12px}
@@ -376,17 +376,17 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 </section>
-<section class="faq"><div class="sec-h rise"><h2>Dudas frecuentes</h2></div><details><summary>¿Cómo aparto mi fecha?</summary><p>Confirmas el combo y la fecha por WhatsApp. Apartas con un abono y el resto el día de la sesión.</p></details><details><summary>¿Dónde están las sucursales?</summary><p>Tenemos 2 sucursales en La Romana:<br><b>Los Mulos / Villa Hermosa</b> — C/ Juan Pablo Duarte, esq. Freddy Prestol Castillo (edificio azul de 2 tonos). WhatsApp +1 849-524-5620.<br><b>Plaza Artesanal</b> — C2FM+V6W, 3, La Romana 22000. WhatsApp +1 809-833-7809.</p></details><details><summary>¿Hacen sesiones fuera del estudio?</summary><p>Sí. Elige "Fuera del estudio" en el wizard al reservar y nos coordinamos por WhatsApp para tu locación.</p></details><details><summary>¿Qué incluye exactamente un combo?</summary><p>Cada combo muestra sus ítems. Solo los que tienen recuadro "Incluye" traen vestuario/maquillaje — verifica el paquete elegido.</p></details><details><summary>¿Puedo personalizar un combo?</summary><p>Sí. Si quieres más fotos, otro tamaño o algo extra, lo armamos a tu medida.</p></details><details><summary>¿Cuándo recibo mis fotos?</summary><p>Las digitales en 24-72h. Impresiones y enmarcados entre 1 y 10 días según el combo.</p></details></section>
+<section class="faq"><div class="sec-h rise"><h2>Dudas frecuentes</h2></div><details><summary>¿Cómo aparto mi fecha?</summary><p>Confirmas el combo y la fecha por WhatsApp. Apartas con un abono y el resto el día de la sesión.</p></details><details><summary>¿Dónde están las sucursales?</summary><p>Tenemos 2 sucursales en La Romana:<br><b>Los Mulos / Villa Hermosa</b> — C/ Juan Pablo Duarte, esq. Freddy Prestol Castillo (edificio azul de 2 tonos). WhatsApp +1 849-524-5620.<br><b>Plaza Artesanal</b> — C2FJ+QX, Calle Dr. Teófilo Ferry esq., La Romana 22000. WhatsApp +1 809-833-7809.</p></details><details><summary>¿Hacen sesiones fuera del estudio?</summary><p>Sí. Elige "Fuera del estudio" en el wizard al reservar y nos coordinamos por WhatsApp para tu locación.</p></details><details><summary>¿Qué incluye exactamente un combo?</summary><p>Cada combo muestra sus ítems. Solo los que tienen recuadro "Incluye" traen vestuario/maquillaje — verifica el paquete elegido.</p></details><details><summary>¿Puedo personalizar un combo?</summary><p>Sí. Si quieres más fotos, otro tamaño o algo extra, lo armamos a tu medida.</p></details><details><summary>¿Cuándo recibo mis fotos?</summary><p>Las digitales en 24-72h. Impresiones y enmarcados entre 1 y 10 días según el combo.</p></details></section>
 <footer class="ftr">
 <div class="fl">
 <a href="https://instagram.com/dcarela_compufoto" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.tiktok.com/@carelacompufoto" target="_blank" rel="noopener">TikTok</a>
-<a href="https://maps.app.goo.gl/WcmjureAxNySXza59" target="_blank" rel="noopener">Mapa · Los Mulos</a>
-<a href="https://www.google.com/maps/place/C2FM%2BV6W,+La+Romana+22000" target="_blank" rel="noopener">Mapa · Plaza Artesanal</a>
+<a href="https://maps.app.goo.gl/HwabKLVeUr7czfp16" target="_blank" rel="noopener">Mapa · Los Mulos</a>
+<a href="https://maps.app.goo.gl/u1TQ9NmXCeVwQxUp7" target="_blank" rel="noopener">Mapa · Plaza Artesanal</a>
 </div>
 <div class="ad"><b>D' Carela Compufoto</b> · Captamos tus mejores momentos<br>
 <b>Sucursal Los Mulos / Villa Hermosa</b> — C/ Juan Pablo Duarte esq. Freddy Prestol Castillo, La Romana · WhatsApp +1 849-524-5620<br>
-<b>Sucursal Plaza Artesanal</b> — C2FM+V6W, 3, La Romana 22000 · WhatsApp +1 809-833-7809<br>
+<b>Sucursal Plaza Artesanal</b> — C2FJ+QX, Calle Dr. Teófilo Ferry esq., La Romana 22000 · WhatsApp +1 809-833-7809<br>
 Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
 </footer>
 </div>
@@ -597,7 +597,6 @@ Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
       ctx.fillStyle=ca;ctx.font='900 66px -apple-system, Segoe UI, sans-serif';
       ctx.fillText(price.replace(/\s+/g,' '),92,970);
       ctx.fillStyle='rgba(255,255,255,.74)';ctx.font='800 22px -apple-system, Segoe UI, sans-serif';
-      ctx.fillText('ITBIS incluido (18%)',92,1005);
       ctx.fillStyle='rgba(255,255,255,.94)';ctx.font='500 25px -apple-system, Segoe UI, sans-serif';
       var y=1052;
       items.slice(0,12).forEach(function(it){ctx.fillText(it,108,y);y+=34;});
@@ -893,7 +892,7 @@ Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
       var s=[];
       // PRIMERA pregunta universal: en qué sucursal o si es fuera del estudio.
       // Los Mulos = sucursal central (bot WhatsApp 849-524-5620).
-      // Plaza Artesanal = nueva sucursal (809-833-7809, C2FM+V6W (Plus Code Google Maps)).
+      // Plaza Artesanal = nueva sucursal (809-833-7809, C2FJ+QX (Plus Code Google Maps)).
       // Fuera del estudio = sesión externa; usa el número de Los Mulos para coordinar.
       s.push(optionStep('sucursal','¿En qué sucursal deseas la sesión?','Si quieres que vayamos a tu locación, elige "Fuera del estudio".',[
         'Sucursal Los Mulos / Villa Hermosa',
