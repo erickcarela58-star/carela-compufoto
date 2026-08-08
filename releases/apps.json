@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-08T11:55:00Z",
+  "apps": [
+    {
+      "product_id": "dcarela-pos",
+      "product": "D' Carela POS",
+      "platform": "Windows x64",
+      "channel": "stable",
+      "version": "1.0.34",
+      "build": "94d6d91",
+      "minimum_supported_version": "1.0.12",
+      "download_url": "https://github.com/erickcarela58-star/dcarela-panel/releases/download/pos-v1.0.34/DCARELA_POS_Setup_1.0.34.exe",
+      "store_url": null,
+      "sha256": "0a3f5932f5be05b8e064ece219ee3cce697db2376af34783976bfd7c9cd109c7",
+      "size": 105185120,
+      "release_notes": "Permisos RBAC, elevaciones administrativas de un solo uso, cerebro local validado 300/300 y acceso al panel CURRENT.",
+      "published_at": "2026-08-08T11:50:02Z",
+      "mandatory": false,
+      "status": "published",
+      "signed": false
+    },
+    {
+      "product_id": "dcarela-finanzas-ios",
+      "product": "D' Carela Finanzas",
+      "platform": "iOS 16.4+",
+      "channel": "stable",
+      "version": "1.2.0",
+      "build": "3",
+      "minimum_supported_version": "1.2.0",
+      "download_url": null,
+      "store_url": null,
+      "sha256": "ab5ecbd23889c97f53541f98744e4ec9273e79e2ba96b268a43bbfb790540128",
+      "size": 577412,
+      "release_notes": "Build nativo SwiftUI validado; requiere firma y distribución Apple.",
+      "published_at": null,
+      "mandatory": false,
+      "status": "build_unsigned",
+      "signed": false
+    },
+    {
+      "product_id": "brujula-ios",
+      "product": "Brújula",
+      "platform": "iOS",
+      "channel": "stable",
+      "version": "0.1.0",
+      "build": "1",
+      "minimum_supported_version": "0.1.0",
+      "download_url": null,
+      "store_url": null,
+      "sha256": null,
+      "size": null,
+      "release_notes": "Código nativo validado; compilación, firma y distribución Apple pendientes.",
+      "published_at": null,
+      "mandatory": false,
+      "status": "blocked_external",
+      "signed": false
+    }
+  ]
+}
