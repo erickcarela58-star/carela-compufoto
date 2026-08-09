@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-09T01:10:00Z",
+  "generated_at": "2026-08-09T08:18:00Z",
   "apps": [
     {
       "product_id": "dcarela-pos",
@@ -30,8 +30,8 @@
       "minimum_supported_version": "1.2.0",
       "download_url": null,
       "store_url": null,
-      "sha256": null,
-      "size": null,
+      "sha256": "10e6b168c0296c61f02a7f490d99b0da090f5391d242a8783f87e74084294c93",
+      "size": 689049,
       "release_notes": "Reconstrucción SwiftUI nativa: Resumen, Movimientos, Cuentas, Presupuestos, Tarjetas, Compromisos y Categorías cargan y reintentan de forma independiente. Incluye centro de actualizaciones oficial.",
       "published_at": null,
       "mandatory": false,
@@ -48,8 +48,8 @@
       "minimum_supported_version": "0.1.0",
       "download_url": null,
       "store_url": null,
-      "sha256": null,
-      "size": null,
+      "sha256": "fce3245091d707ba65033f4a627fe7cf9ec6109136069e27a2e4654a75037058",
+      "size": 17626082,
       "release_notes": "Reconstrucción nativa con seis ejercicios locales, cámara privada para el diario, Salud, Tiempo en pantalla, notificaciones y centro de actualizaciones oficial.",
       "published_at": null,
       "mandatory": false,
