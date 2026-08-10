@@ -1,10 +1,14 @@
 # D Carela Compufoto - cache para hosting Apache (HostGator)
 # HTML siempre fresco (para que los cambios se vean sin Ctrl+F5)
 <FilesMatch "\.(html)$">
-  Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
 </FilesMatch>
 <FilesMatch "\.(json)$">
-  Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
 </FilesMatch>
 # Assets con version (?v): cacheables fuerte
 <FilesMatch "\.(css|js|webp|jpg|jpeg|png|mp4|otf|woff2|svg)$">

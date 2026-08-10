@@ -1,6 +1,9 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-08-10T05:25:11Z",
+  "schema_version": 2,
+  "registry_build": "2026.08.10.2",
+  "generated_at": "2026-08-10T05:50:00Z",
+  "verified_at": "2026-08-10",
+  "verification_label": "Compilación verificada 10/08/2026",
   "apps": [
     {
       "product_id": "dcarela-pos",
@@ -34,7 +37,22 @@
       "artifact_url": "https://github.com/erickcarela58-star/carela-compufoto/releases/download/ios-diagnostics-20260810/DCarelaFinanzas-2.0.0-unsigned.ipa",
       "artifact_sha256": "2b0eec0cf4f2bde88a8dd6d29b64145949eaad5ffafb07f1375e2fc47f4f55cd",
       "size": 689049,
-      "release_notes": "Reconstrucción SwiftUI nativa: Resumen, Movimientos, Cuentas, Presupuestos, Tarjetas, Compromisos y Categorías cargan y reintentan de forma independiente. Incluye centro de actualizaciones oficial.",
+      "release_notes": "Aplicación financiera reconstruida como cliente SwiftUI nativo, sin WebView, con módulos independientes y canal de actualización compatible con la distribución oficial de Apple.",
+      "verification": {
+        "label": "Compilación verificada 10/08/2026",
+        "native_ui": "SwiftUI",
+        "webview": false,
+        "artifact_kind": "IPA de diagnóstico sin firma"
+      },
+      "capabilities": [
+        "Resumen financiero con métricas, flujo y actividad reciente",
+        "Movimientos, Cuentas y Presupuestos con carga y reintento independientes",
+        "Tarjetas, Compromisos y Categorías disponibles desde la navegación nativa",
+        "Registro de ingresos y gastos con sincronización del libro financiero",
+        "Sesión protegida en el llavero y permiso explícito para notificaciones",
+        "Centro de actualizaciones preparado para App Store o TestFlight"
+      ],
+      "distribution_note": "La compilación está verificada pero no está firmada por Apple; no es instalable directamente ni está publicada en App Store o TestFlight.",
       "published_at": null,
       "mandatory": false,
       "status": "build_unsigned",
@@ -54,7 +72,24 @@
       "artifact_url": "https://github.com/erickcarela58-star/carela-compufoto/releases/download/ios-diagnostics-20260810/Brujula-1.0.0-unsigned.ipa",
       "artifact_sha256": "8e7fbef1257042785c8d7176db036d1ff73450f4bf3c1b68d57d1430e0a4b838",
       "size": 17626097,
-      "release_notes": "Reconstrucción nativa con seis ejercicios locales, cámara privada para el diario, Salud, Tiempo en pantalla, notificaciones y centro de actualizaciones oficial.",
+      "release_notes": "Aplicación SwiftUI nativa y local-first para enfoque, salud y crecimiento personal, con recursos y extensiones incluidos dentro de la compilación.",
+      "verification": {
+        "label": "Compilación verificada 10/08/2026",
+        "native_ui": "SwiftUI",
+        "webview": false,
+        "bundled_exercise_videos": 6,
+        "bundled_extensions": 5,
+        "artifact_kind": "IPA de diagnóstico sin firma"
+      },
+      "capabilities": [
+        "Seis ejercicios en video incluidos localmente y rutina guiada de diez minutos",
+        "Cámara privada para adjuntar evidencia al diario de bienestar",
+        "HealthKit de solo lectura, Tiempo en pantalla con Family Controls y notificaciones locales",
+        "Permisos separados para Cámara, Salud, Tiempo en pantalla y Notificaciones",
+        "Navegación SwiftUI con botón Atrás y gesto interactivo del sistema",
+        "Centro de actualizaciones preparado para App Store o TestFlight"
+      ],
+      "distribution_note": "La compilación está verificada pero no está firmada por Apple; no es instalable directamente ni está publicada en App Store o TestFlight.",
       "published_at": null,
       "mandatory": false,
       "status": "build_unsigned",

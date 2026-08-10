@@ -1,6 +1,10 @@
 # Cache fuerte para imagenes y assets (no revalidan en cada visita).
 # Esto arregla la lentitud en internet debil: el navegador reusa la imagen
 # en vez de preguntarle al servidor por cada foto.
+/apps.html
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/releases/apps.json
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
 /img/*
   Cache-Control: public, max-age=31536000, immutable
 *.webp
