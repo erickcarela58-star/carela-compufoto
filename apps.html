@@ -493,7 +493,7 @@
                 >
               </div>
             </div>
-            <div class="registry-build">REGISTRO 2026.08.10.3</div>
+            <div class="registry-build">REGISTRO 2026.08.11.1</div>
           </div>
           <div class="lg signal" aria-label="Estado del registro">
             <div class="signal-top">
@@ -725,7 +725,7 @@
           });
           if (!response.ok) throw new Error("HTTP " + response.status);
           const registry = await response.json();
-          if (registry.registry_build !== "2026.08.10.3")
+          if (registry.registry_build !== "2026.08.11.1")
             throw new Error("Registro desactualizado");
           const apps = registry.apps || [];
           const releases = apps.filter(
