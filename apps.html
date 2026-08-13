@@ -489,11 +489,11 @@
               <div>
                 <strong>Compilación verificada 13/08/2026</strong
                 ><span
-                  >Caja 1.0.44 · Finanzas 4.0.0 · Brújula 2.0.0</span
+                  >Caja 1.0.44 · Finanzas 4.0.0 · Brújula 3.0.0</span
                 >
               </div>
             </div>
-            <div class="registry-build">REGISTRO 2026.08.13.2</div>
+            <div class="registry-build">REGISTRO 2026.08.13.3</div>
           </div>
           <div class="lg signal" aria-label="Estado del registro">
             <div class="signal-top">
@@ -594,7 +594,7 @@
     >
     <script>
       (async function () {
-        const REGISTRY_BUILD = "20260813.2";
+        const REGISTRY_BUILD = "20260813.3";
         const currentURL = new URL(window.location.href);
         if (currentURL.searchParams.get("build") !== REGISTRY_BUILD) {
           currentURL.searchParams.set("build", REGISTRY_BUILD);
@@ -725,7 +725,7 @@
           });
           if (!response.ok) throw new Error("HTTP " + response.status);
           const registry = await response.json();
-          if (registry.registry_build !== "2026.08.13.2")
+          if (registry.registry_build !== "2026.08.13.3")
             throw new Error("Registro desactualizado");
           const apps = registry.apps || [];
           const releases = apps.filter(
