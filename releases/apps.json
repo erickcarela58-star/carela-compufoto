@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "registry_build": "2026.08.13.4",
-  "generated_at": "2026-08-13T06:44:00Z",
+  "registry_build": "2026.08.13.5",
+  "generated_at": "2026-08-13T07:08:01Z",
   "verified_at": "2026-08-13",
   "verification_label": "Enlaces verificados 13/08/2026",
   "apps": [
@@ -28,16 +28,16 @@
       "product": "D' Carela Finanzas",
       "platform": "iOS 16.4+",
       "channel": "stable",
-      "version": "4.0.0",
-      "build": "400",
+      "version": "5.0.0",
+      "build": "500",
       "minimum_supported_version": "1.2.0",
       "download_url": null,
       "store_url": null,
-      "sha256": "b280faae3b971d63859e4648db3b73dae6c8958a9478eedee89485fd3631f3fe",
-      "artifact_url": "https://github.com/erickcarela58-star/carela-compufoto/releases/download/finanzas-ios-4.0.0/DCarelaFinanzas-4.0.0-unsigned.ipa",
-      "artifact_sha256": "b280faae3b971d63859e4648db3b73dae6c8958a9478eedee89485fd3631f3fe",
-      "size": 807904,
-      "release_notes": "Reconstrucción SwiftUI 4.0: corrige el permiso administrativo que dejaba la aplicación en solo lectura, adopta la navegación del panel y permite editar cuentas, categorías, presupuestos y tarjetas.",
+      "sha256": "c51597041e2a9d0e1f0387ba2e6198ca9f7d21d4de08831c5796297c8925c543",
+      "artifact_url": "https://github.com/erickcarela58-star/carela-compufoto/releases/download/finanzas-ios-5.0.0/DCarelaFinanzas-5.0.0-unsigned.ipa",
+      "artifact_sha256": "c51597041e2a9d0e1f0387ba2e6198ca9f7d21d4de08831c5796297c8925c543",
+      "size": 847535,
+      "release_notes": "Reconstrucción móvil SwiftUI 5.0: replica la identidad azul, blanca y naranja de D' Carela con navegación inferior, cristal, tarjetas de cuentas con degradados y acceso completo a los módulos financieros editables.",
       "verification": {
         "label": "Compilación verificada 13/08/2026",
         "native_ui": "SwiftUI",
@@ -45,7 +45,8 @@
         "artifact_kind": "IPA de diagnóstico sin firma"
       },
       "capabilities": [
-        "Navegación superior equivalente al panel web con ocho módulos financieros",
+        "Navegación móvil inferior con Resumen, Movimientos, alta rápida, Cuentas y Más",
+        "Resumen azul y blanco con cristal, minigráficas y tarjetas de cuentas con degradados",
         "Cuentas, categorías, presupuestos y tarjetas existentes editables desde iPhone",
         "Conciliación con saldo objetivo, motivo obligatorio y ajuste no operativo auditado",
         "Aviso de corte pendiente y confirmación del efectivo recibido desde la aplicación",
@@ -53,7 +54,7 @@
         "Centro de actualizaciones preparado para App Store o TestFlight"
       ],
       "distribution_note": "La compilación está verificada pero no está firmada por Apple; no es instalable directamente ni está publicada en App Store o TestFlight.",
-      "published_at": "2026-08-13T04:03:30Z",
+      "published_at": "2026-08-13T07:08:01Z",
       "mandatory": false,
       "status": "build_unsigned",
       "signed": false
