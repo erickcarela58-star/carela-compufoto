@@ -114,6 +114,23 @@ function initGallery3D(){
   requestAnimationFrame(frame);
   addEventListener('resize',()=>{renderer.setSize(W(),H());cam.aspect=W()/H();cam.updateProjectionMatrix();});
 }
+function initGallery3DLazy(){
+  const host=$('#gal3d');if(!host)return;
+  let started=false;
+  const start=()=>{
+    if(started)return;started=true;
+    if(window.THREE){initGallery3D();return;}
+    const script=document.createElement('script');
+    script.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    script.async=true;
+    script.onload=initGallery3D;
+    script.onerror=()=>buildGalFallback(host,(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).map(s=>s.trim()));
+    document.head.appendChild(script);
+  };
+  if(!('IntersectionObserver' in window)){start();return;}
+  const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();start();}},{rootMargin:'600px 0px'});
+  observer.observe(host);
+}
 function buildGalFallback(host,imgs){
   const d=document.createElement('div');d.className='gal-fallback';
   d.innerHTML=imgs.slice(0,12).map(s=>'<img src="'+s+'" alt="">').join('');
@@ -429,7 +446,7 @@ function initBoda(BODA){
             '<span class="cdd-p">RD$ '+c.precios_por_cuadro[q].toLocaleString('es-DO')+'</span></button>').join('')+
         '</div>'+
       '</div></div>'+
-      '<div class="boda-price"><span>Precio del combo</span><strong><small>RD$</small> <span class="val">'+price.toLocaleString('es-DO')+'</span></strong></div>'+
+      '<div class="boda-price"><span>Precio final · ITBIS 18% incluido</span><strong><small>RD$</small> <span class="val">'+price.toLocaleString('es-DO')+'</span></strong></div>'+
       '<ul class="boda-includes"><li>'+c.digitales+' digitales</li><li class="frame">1 cuadro '+cuadro+'</li><li>10 impresas 5x7</li><li>2 tazas</li><li>2 llaveros</li></ul>'+
       '<button class="lgbtn wa boda-reserve" data-reserve data-cat="boda" data-combo="'+escA(identity.title+' · '+c.digitales+' fotos digitales')+'" data-price="RD$ '+escA(price.toLocaleString('es-DO'))+'" data-extra="'+escA(BODA.categorias[cat].label+' · Cuadro '+cuadro)+'">Reservar este combo</button>'+
       '</div></article>';
@@ -604,11 +621,16 @@ function initVideos(){
 }
 
 /* ================= boot ================= */
-initGallery3D();initOrbit();initExpandable();initCompare();initPortfolio();initWordAnim();initLineAnim();initWizard();initVideos();initAlbum();observeAnims();
+initGallery3DLazy();initOrbit();initExpandable();initCompare();initPortfolio();initWordAnim();initLineAnim();initWizard();initVideos();initAlbum();observeAnims();
 // Animaciones con el SCROLL: revela solo lo que ya está en pantalla al cargar; lo demás se revela al hacer scroll (IntersectionObserver).
 requestAnimationFrame(function(){$$('.reveal:not(.in),[data-anim]:not(.in)').forEach(function(e){if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in');});});
 const needCombos=$('#combos-groups'),needBoda=$('#boda-grid');
 const _cv='?v='+(window.DC_V||Date.now());
-if(needCombos){fetch('combos-data.json'+_cv).then(r=>r.json()).then(initCombosGrouped).catch(()=>{});}
-if(needBoda){fetch('combos-boda-data.json'+_cv).then(r=>r.json()).then(initBoda).catch(()=>{});}
+function loadJson(url,onData,host){
+  fetch(url,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(onData).catch(()=>{
+    if(host)host.innerHTML='<div class="load-error" role="alert"><b>No pudimos cargar los combos.</b><span>Revisa tu conexión y vuelve a intentarlo.</span><button type="button" onclick="location.reload()">Reintentar</button></div>';
+  });
+}
+if(needCombos)loadJson('combos-data.json'+_cv,initCombosGrouped,needCombos);
+if(needBoda)loadJson('combos-boda-data.json'+_cv,initBoda,needBoda);
 })();

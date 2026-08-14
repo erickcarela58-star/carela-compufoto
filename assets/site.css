@@ -709,3 +709,5 @@ img.emoji{height:1em;width:1em;margin:0 .05em 0 .1em;vertical-align:-0.1em;displ
   /* nada de zoom accidental por inputs < 16px en iOS */
   input,select,textarea{font-size:16px}
 }
+.load-error{display:grid;gap:10px;justify-items:center;margin:32px auto;padding:28px;max-width:620px;border:1px solid rgba(10,54,121,.18);border-radius:18px;background:rgba(255,255,255,.82);text-align:center;color:var(--ink)}
+.load-error span{color:var(--mut);font-size:.92rem}.load-error button{border:0;border-radius:999px;background:var(--blue);color:#fff;font:700 .9rem Montserrat,sans-serif;padding:11px 20px;cursor:pointer}
