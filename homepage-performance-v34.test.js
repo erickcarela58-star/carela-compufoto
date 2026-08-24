@@ -19,7 +19,7 @@ for (const [name, html] of [['index.html', index], ['inicio.html', inicio]]) {
   assert.doesNotMatch(html, /class="gal-cover"/, `${name} no debe sustituir el carrusel por una portada estática.`);
   assert.match(html, /rel="preconnect" href="https:\/\/cdnjs\.cloudflare\.com"/);
   assert.match(html, /assets\/site\.css\?v=20260824v34/);
-  assert.match(html, /assets\/site\.js\?v=20260824v34/);
+  assert.match(html, /assets\/site\.js\?v=20260824v34p2/);
 }
 
 assert.match(css, /\.gal-hero\{[^}]+background:#09060d/);
