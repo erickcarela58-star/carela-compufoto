@@ -4,8 +4,11 @@
 <!-- CODEX_PRICE_RULE_20260524_APPLIED: final=(visible_base + xv_makeup_2500_if_includes_makeup) * 1.18; xv_makeup_combos +4 digital photos. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>D' Carela Compufoto · Combos</title>
-<meta name="theme-color" content="#0a0712">
+<title>Combos fotográficos en La Romana · D' Carela Compufoto</title>
+<meta name="description" content="Compara 39 combos fotográficos vigentes para XV, infantil, graduación, cumpleaños y maternidad. Reserva en Los Mulos o Plaza Artesanal.">
+<meta name="theme-color" content="#f5f7fb">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://dcarelacompufoto.com/combos.html">
 <meta property="og:title" content="D' Carela Compufoto · Combos">
 <meta property="og:description" content="Captamos tus mejores momentos · XV, infantil, graduación, cumpleaños y embarazadas en La Romana.">
 <meta property="og:image" content="https://dcarelacompufoto.com/img/pf_xv_4.webp">
@@ -344,6 +347,8 @@ a{text-decoration:none;color:inherit}
  .rise{opacity:1;transform:none}
 }
 </style>
+<link rel="stylesheet" href="assets/catalog-v33.css?v=20260824v33">
+<script defer src="assets/catalog-v33.js?v=20260824v33"></script>
 </head>
 <body>
 <script>
@@ -445,10 +450,9 @@ Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
  window.addEventListener('scroll',sweep,{passive:true});
  window.addEventListener('resize',sweep,{passive:true});
  window.addEventListener('load',function(){sweep();setTimeout(sweep,150);});
- // Carga progresiva: en internet debil NO bajamos todas las fotos de golpe.
- // Las visibles cargan ya (sweep); las de mas abajo entran una por una.
- function drain(){ if(!lazyEls.length)return; reveal(lazyEls.shift()); setTimeout(drain,260); }
- setTimeout(drain,1200);
+ // Las fotos fuera de pantalla permanecen diferidas hasta que el usuario se acerca.
+ // No se vacía la cola por temporizador: hacerlo descargaba el catálogo completo aun
+ // cuando el visitante solo veía una categoría, especialmente costoso en teléfonos.
 
  function applyAccent(a){
    if(!a)return;
@@ -727,7 +731,16 @@ Lun-Vie 8AM-7PM · Sáb 8AM-6PM · Dom 8AM-5PM</div>
      const img = new Image();
      img.loading = 'lazy';
      img.decoding = 'async';
-     img.src = item.image || item.src;
+     img.fetchPriority = 'low';
+     const originalImage = item.image || item.src;
+     const responsiveMatch = String(originalImage || '').match(/^img\/([^/]+)\.webp$/i);
+     if(responsiveMatch){
+       img.src = 'img/optimized-v33/' + responsiveMatch[1] + '-480.webp';
+       img.srcset = 'img/optimized-v33/' + responsiveMatch[1] + '-480.webp 480w, img/optimized-v33/' + responsiveMatch[1] + '-960.webp 960w';
+       img.sizes = '(max-width:640px) 50vw, 360px';
+     }else{
+       img.src = originalImage;
+     }
      img.alt = item.caption || item.title || category;
      if(item.width) img.width = item.width;
      if(item.height) img.height = item.height;

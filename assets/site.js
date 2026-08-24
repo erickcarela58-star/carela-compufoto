@@ -5,6 +5,17 @@ const IMG='img/';
 const WA='18097575644';
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const GALLERY_LIMIT=matchMedia('(max-width:700px)').matches?8:14;
+function attr(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+function optimizedImage(src,width){
+  const m=String(src||'').match(/^img\/([^/]+)\.webp$/i);
+  return m?'img/optimized-v33/'+m[1]+'-'+width+'.webp':src;
+}
+function responsiveImage(src,alt,sizes,extra){
+  const small=optimizedImage(src,480),large=optimizedImage(src,960);
+  const set=small!==src?' srcset="'+attr(small)+' 480w, '+attr(large)+' 960w"':'';
+  return '<img src="'+attr(small)+'"'+set+' sizes="'+attr(sizes||'(max-width:700px) 88vw, 520px')+'" alt="'+attr(alt||'')+'" loading="lazy" decoding="async" fetchpriority="low"'+(extra?' '+extra:'')+'>';
+}
 function wa(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m||"Hola D' Carela, quiero reservar una sesión 📸");}
 function seq(p,n){return Array.from({length:n},(_,i)=>IMG+p+i+'.webp');}
 // POOL por categoría REAL (inyectado desde portfolio-data.json vía window.DC_POOL). Fallback: por prefijo de archivo.
@@ -59,7 +70,7 @@ window.DC.openLB=openLB;
 /* ================= 3D GALLERY (three.js) ================= */
 function initGallery3D(){
   const host=$('#gal3d');if(!host)return;
-  const imgs=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).map(s=>s.trim());
+  const imgs=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,GALLERY_LIMIT).map(s=>optimizedImage(s.trim(),matchMedia('(max-width:700px)').matches?480:960));
   if(!window.THREE){buildGalFallback(host,imgs);return;}
   let renderer;try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});}catch(e){buildGalFallback(host,imgs);return;}
   const W=()=>host.clientWidth,H=()=>host.clientHeight;
@@ -67,7 +78,7 @@ function initGallery3D(){
   host.appendChild(renderer.domElement);
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(58,W()/H(),0.1,100);cam.position.z=0;
-  const DEPTH=52,COUNT=Math.min(28,imgs.length),HALF=DEPTH/2;
+  const DEPTH=52,COUNT=imgs.length,HALF=DEPTH/2;
   const loader=new THREE.TextureLoader();loader.crossOrigin='anonymous';
   const planes=[];
   function spatial(i){const ha=(i*2.399)% (Math.PI*2),va=(i*1.618+Math.PI/3)%(Math.PI*2);const hr=(i%3)*1.2,vr=((i+1)%4)*0.85;return{x:Math.sin(ha)*hr*8/3,y:Math.cos(va)*vr*8/4};}
@@ -119,6 +130,10 @@ function initGallery3DLazy(){
   let started=false;
   const start=()=>{
     if(started)return;started=true;
+    if(matchMedia('(max-width:700px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||navigator.connection?.saveData){
+      buildGalFallback(host,(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,8).map(s=>s.trim()));
+      return;
+    }
     if(window.THREE){initGallery3D();return;}
     const script=document.createElement('script');
     script.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
@@ -133,7 +148,7 @@ function initGallery3DLazy(){
 }
 function buildGalFallback(host,imgs){
   const d=document.createElement('div');d.className='gal-fallback';
-  d.innerHTML=imgs.slice(0,12).map(s=>'<img src="'+s+'" alt="">').join('');
+  d.innerHTML=imgs.slice(0,8).map(s=>responsiveImage(s,'Muestra del portafolio','(max-width:700px) 50vw, 25vw')).join('');
   host.appendChild(d);
 }
 
@@ -145,7 +160,7 @@ function initOneOrbit(stage){
   const base=stage.dataset.imgs?stage.dataset.imgs.split(','):(stage.dataset.cat&&POOL[stage.dataset.cat]?POOL[stage.dataset.cat]:mixPool());
   const imgs=shuf(base).slice(0,8).map(s=>s.trim());
   const cards=imgs.map((n,i)=>{const c=document.createElement('div');c.className='oc';c.style.transform='translate(-50%,-50%)';
-    c.innerHTML='<img src="'+n+'" alt="" loading="lazy">';ring.appendChild(c);return{el:c,base:i*(360/imgs.length),rot:(i%2?1:-1)*(5+i*1.4)};});
+    c.innerHTML=responsiveImage(n,'Muestra fotográfica','(max-width:700px) 42vw, 280px');ring.appendChild(c);return{el:c,base:i*(360/imgs.length),rot:(i%2?1:-1)*(5+i*1.4)};});
   let t=0,mx=0,my=0;
   function loop(){t=(t+0.1)%360;const r=stage.getBoundingClientRect();const rad=Math.min(r.width,r.height)*0.34;
     cards.forEach(c=>{const a=(c.base+t)*Math.PI/180;const x=Math.cos(a)*rad,y=Math.sin(a)*rad*0.62;const dp=(Math.sin(a)+1)/2;
@@ -165,7 +180,7 @@ function initExpandable(){
     '<div class="dcar-track">'+
       DRESSES.map((d,i)=>
         '<figure class="dcar-slide" data-i="'+i+'">'+
-          '<img src="'+IMG+d[1]+'.webp" alt="'+d[0]+'" loading="lazy">'+
+          responsiveImage(IMG+d[1]+'.webp',d[0],'(max-width:700px) 72vw, 360px')+
           '<span class="dcar-zoom">⤢</span>'+
           '<figcaption><h3>'+d[0]+'</h3><small>'+d[2]+'</small></figcaption>'+
         '</figure>').join('')+
@@ -216,8 +231,8 @@ function initPortfolio(){
   const grid=$('#draggrid',wrap);
   const cat=wrap.dataset.cat;
   let pool=cat&&POOL[cat]?POOL[cat].slice():mixPool();
-  const block=pool.slice(0,Math.min(pool.length,24));
-  const gi=block.map((src,k)=>'<div class="gi" data-idx="'+k+'"><img src="'+src+'" alt="Portafolio D Carela" loading="lazy"></div>').join('');
+  const block=pool.slice(0,Math.min(pool.length,matchMedia('(max-width:700px)').matches?12:18));
+  const gi=block.map((src,k)=>'<div class="gi" data-idx="'+k+'">'+responsiveImage(src,'Portafolio D Carela','(max-width:700px) 46vw, 280px')+'</div>').join('');
   const blk='<div class="gblock">'+gi+'</div>';
   grid.innerHTML=blk+blk+blk+blk;
   $$('.gi',grid).forEach(g=>g.addEventListener('click',()=>{if(!wrap._moved)openLB(block,+g.dataset.idx);}));
@@ -254,7 +269,7 @@ function comboCard(c,feat,cat){
     : '<li>'+i+'</li>').join('');
   const hot=feat||/COMPLETO/i.test(c.badge||'');
   return '<article class="ccard'+(feat?' feat':'')+'">'+
-    '<div class="cph"><img src="'+c.bg+'" alt="'+escA(c.name)+'" loading="lazy">'+
+    '<div class="cph">'+responsiveImage(c.bg,c.name,'(max-width:700px) 92vw, 460px')+
       (hot?'<span class="ribbon">Más completo</span>':'')+'</div>'+
     '<div class="lg body">'+
       '<h3>'+c.name+'</h3>'+
@@ -426,7 +441,7 @@ function initBoda(BODA){
   function mediaFor(i,identity){
     const photos=photosFor(i);
     if(!photos.length)return '<div class="boda-media cph-boda"><span class="cph-tag">'+identity.tag+'</span></div>';
-    return '<div class="boda-media">'+photos.map((src,j)=>'<figure class="bm'+j+'"><img src="'+src+'" alt="Sesión real de boda" loading="lazy"></figure>').join('')+
+    return '<div class="boda-media">'+photos.map((src,j)=>'<figure class="bm'+j+'">'+responsiveImage(src,'Sesión real de boda','(max-width:700px) 88vw, 520px')+'</figure>').join('')+
       '<span class="cph-tag">'+identity.tag+'</span></div>';
   }
   function card(c,i){
