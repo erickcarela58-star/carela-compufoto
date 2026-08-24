@@ -9,6 +9,17 @@
 <meta name="theme-color" content="#f5f7fb">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://dcarelacompufoto.com/combos.html">
+<script>
+(function(){
+  if(window.top!==window)return;
+  var routes={xv:'/xv.html',infantil:'/infantil.html',graduacion:'/graduacion.html',cumpleanos:'/cumple.html',embarazadas:'/embarazadas.html'};
+  var params=new URLSearchParams(location.search);
+  var target=new URL(routes[(params.get('cat')||'').toLowerCase()]||'/#categorias',location.origin);
+  params.delete('cat');
+  params.forEach(function(value,key){target.searchParams.append(key,value);});
+  location.replace(target.href);
+}());
+</script>
 <meta property="og:title" content="D' Carela Compufoto · Combos">
 <meta property="og:description" content="Captamos tus mejores momentos · XV, infantil, graduación, cumpleaños y embarazadas en La Romana.">
 <meta property="og:image" content="https://dcarelacompufoto.com/img/pf_xv_4.webp">

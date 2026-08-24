@@ -111,7 +111,7 @@ img{display:block;max-width:100%}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
 /* ---------- 3D gallery hero (Inicio) ---------- */
-.gal-hero{position:relative;height:min(880px,92svh);min-height:620px;overflow:hidden;isolation:isolate}
+.gal-hero{position:relative;height:min(880px,92svh);min-height:620px;overflow:hidden;isolation:isolate;background:#09060d}
 .gal-hero canvas{display:block}
 #gal3d{position:absolute;inset:0;z-index:0}
 .gal-veil{position:absolute;left:0;right:0;bottom:0;height:42%;pointer-events:none;background:linear-gradient(180deg,transparent,var(--bgA))}

@@ -70,11 +70,12 @@ window.DC.openLB=openLB;
 /* ================= 3D GALLERY (three.js) ================= */
 function initGallery3D(){
   const host=$('#gal3d');if(!host)return;
-  const imgs=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,GALLERY_LIMIT).map(s=>optimizedImage(s.trim(),matchMedia('(max-width:700px)').matches?480:960));
+  const mobile=matchMedia('(max-width:700px)').matches;
+  const imgs=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,GALLERY_LIMIT).map(s=>optimizedImage(s.trim(),mobile?480:960));
   if(!window.THREE){buildGalFallback(host,imgs);return;}
-  let renderer;try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});}catch(e){buildGalFallback(host,imgs);return;}
+  let renderer;try{renderer=new THREE.WebGLRenderer({antialias:!mobile,alpha:true,powerPreference:'low-power'});}catch(e){buildGalFallback(host,imgs);return;}
   const W=()=>host.clientWidth,H=()=>host.clientHeight;
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(W(),H());
+  renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.35:1.75));renderer.setSize(W(),H());
   host.appendChild(renderer.domElement);
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(58,W()/H(),0.1,100);cam.position.z=0;
@@ -86,15 +87,17 @@ function initGallery3D(){
     const sp=spatial(i);
     const mat=new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false});
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(1,1),mat);
+    mesh.visible=false;
     mesh.position.set(sp.x,sp.y,0);
-    mesh.userData={z:(DEPTH/COUNT)*i,imgIndex:i%imgs.length,x:sp.x,y:sp.y,aspect:1};
+    mesh.userData={z:(DEPTH/COUNT)*i,imgIndex:i%imgs.length,x:sp.x,y:sp.y,aspect:1,loaded:false};
     scene.add(mesh);planes.push(mesh);
     loader.load(imgs[i%imgs.length],tex=>{tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;mat.map=tex;mat.needsUpdate=true;
-      const im=tex.image;if(im&&im.width)mesh.userData.aspect=im.width/im.height;});
+      const im=tex.image;if(im&&im.width)mesh.userData.aspect=im.width/im.height;mesh.userData.loaded=true;mesh.visible=true;},undefined,()=>{mesh.userData.loaded=false;mesh.visible=false;});
   }
   // al reciclarse un plano carga una foto ALEATORIA de TODO el pool (no repetitivo)
   function swapTex(m,u){const src=imgs[Math.floor(Math.random()*imgs.length)];
-    loader.load(src,tex=>{tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;m.material.map=tex;m.material.needsUpdate=true;const im=tex.image;if(im&&im.width)u.aspect=im.width/im.height;});}
+    u.loaded=false;m.visible=false;m.material.opacity=0;
+    loader.load(src,tex=>{tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;m.material.map=tex;m.material.needsUpdate=true;const im=tex.image;if(im&&im.width)u.aspect=im.width/im.height;u.loaded=true;m.visible=true;},undefined,()=>{u.loaded=false;m.visible=false;});}
   let vel=0.9,drag=false,py=0;
   host.addEventListener('wheel',e=>{e.preventDefault();vel+=e.deltaY*0.008;},{passive:false});
   host.addEventListener('pointerdown',e=>{drag=true;py=e.clientY;host.setPointerCapture(e.pointerId);});
@@ -112,6 +115,8 @@ function initGallery3D(){
       if(z>=DEPTH){z-=DEPTH;swapTex(m,u);}
       else if(z<0){z+=DEPTH;swapTex(m,u);}
       u.z=z;
+      if(!u.loaded||!m.material.map){m.visible=false;m.material.opacity=0;return;}
+      m.visible=true;
       const np=z/DEPTH;
       let op=1;
       if(np<0.08)op=np/0.08;else if(np>0.86)op=Math.max(0,1-(np-0.86)/0.14);
@@ -130,7 +135,7 @@ function initGallery3DLazy(){
   let started=false;
   const start=()=>{
     if(started)return;started=true;
-    if(matchMedia('(max-width:700px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||navigator.connection?.saveData){
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches||navigator.connection?.saveData){
       buildGalFallback(host,(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,8).map(s=>s.trim()));
       return;
     }
@@ -142,8 +147,9 @@ function initGallery3DLazy(){
     script.onerror=()=>buildGalFallback(host,(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).map(s=>s.trim()));
     document.head.appendChild(script);
   };
-  if(!('IntersectionObserver' in window)){start();return;}
-  const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();start();}},{rootMargin:'600px 0px'});
+  const afterIdle=()=>{'requestIdleCallback' in window?requestIdleCallback(start,{timeout:650}):setTimeout(start,180);};
+  if(!('IntersectionObserver' in window)){afterIdle();return;}
+  const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();afterIdle();}},{rootMargin:'200px 0px'});
   observer.observe(host);
 }
 function buildGalFallback(host,imgs){
