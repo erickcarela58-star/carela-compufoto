@@ -71,7 +71,9 @@ window.DC.openLB=openLB;
 function initGallery3D(){
   const host=$('#gal3d');if(!host)return;
   const mobile=matchMedia('(max-width:700px)').matches;
-  const imgs=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,GALLERY_LIMIT).map(s=>optimizedImage(s.trim(),mobile?480:960));
+  const sources=(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).slice(0,GALLERY_LIMIT).map(s=>s.trim());
+  const imgs=sources.map(s=>optimizedImage(s,mobile?480:960));
+  const previews=sources.map(s=>optimizedImage(s,480));
   if(!window.THREE){buildGalFallback(host,imgs);return;}
   let renderer;try{renderer=new THREE.WebGLRenderer({antialias:!mobile,alpha:true,powerPreference:'low-power'});}catch(e){buildGalFallback(host,imgs);return;}
   const W=()=>host.clientWidth,H=()=>host.clientHeight;
@@ -81,7 +83,14 @@ function initGallery3D(){
   const cam=new THREE.PerspectiveCamera(58,W()/H(),0.1,100);cam.position.z=0;
   const DEPTH=52,COUNT=imgs.length,HALF=DEPTH/2;
   const loader=new THREE.TextureLoader();loader.crossOrigin='anonymous';
-  const planes=[];
+  const planes=[],textureJobs=[];let loadedCount=0;
+  host.dataset.galleryLoaded='0';host.dataset.galleryTotal=String(COUNT);
+  function activateTexture(mesh,mat,u,tex,onReady){
+    tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;mat.map=tex;mat.needsUpdate=true;
+    const im=tex.image;if(im&&im.width)u.aspect=im.width/im.height;
+    if(typeof renderer.initTexture==='function')renderer.initTexture(tex);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{u.loaded=true;mesh.visible=true;if(onReady)onReady();}));
+  }
   function spatial(i){const ha=(i*2.399)% (Math.PI*2),va=(i*1.618+Math.PI/3)%(Math.PI*2);const hr=(i%3)*1.2,vr=((i+1)%4)*0.85;return{x:Math.sin(ha)*hr*8/3,y:Math.cos(va)*vr*8/4};}
   for(let i=0;i<COUNT;i++){
     const sp=spatial(i);
@@ -91,13 +100,19 @@ function initGallery3D(){
     mesh.position.set(sp.x,sp.y,0);
     mesh.userData={z:(DEPTH/COUNT)*i,imgIndex:i%imgs.length,x:sp.x,y:sp.y,aspect:1,loaded:false};
     scene.add(mesh);planes.push(mesh);
-    loader.load(imgs[i%imgs.length],tex=>{tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;mat.map=tex;mat.needsUpdate=true;
-      const im=tex.image;if(im&&im.width)mesh.userData.aspect=im.width/im.height;mesh.userData.loaded=true;mesh.visible=true;},undefined,()=>{mesh.userData.loaded=false;mesh.visible=false;});
+    const initialSrc=mobile?imgs[i%imgs.length]:previews[i%previews.length];
+    textureJobs.push({rank:Math.abs(mesh.userData.z-(HALF-4)),load:()=>loader.load(initialSrc,tex=>activateTexture(mesh,mat,mesh.userData,tex,()=>{loadedCount++;host.dataset.galleryLoaded=String(loadedCount);}),undefined,()=>{mesh.userData.loaded=false;mesh.visible=false;})});
   }
+  textureJobs.sort((a,b)=>a.rank-b.rank);
+  let restStarted=false;
+  const startRest=()=>{if(restStarted)return;restStarted=true;textureJobs.slice(4).forEach(job=>job.load());};
+  textureJobs.slice(0,4).forEach(job=>job.load());
+  const firstTexturePoll=setInterval(()=>{if(loadedCount>0){clearInterval(firstTexturePoll);setTimeout(startRest,90);}},40);
+  setTimeout(()=>{clearInterval(firstTexturePoll);startRest();},900);
   // al reciclarse un plano carga una foto ALEATORIA de TODO el pool (no repetitivo)
   function swapTex(m,u){const src=imgs[Math.floor(Math.random()*imgs.length)];
     u.loaded=false;m.visible=false;m.material.opacity=0;
-    loader.load(src,tex=>{tex.colorSpace=THREE.SRGBColorSpace||tex.colorSpace;m.material.map=tex;m.material.needsUpdate=true;const im=tex.image;if(im&&im.width)u.aspect=im.width/im.height;u.loaded=true;m.visible=true;},undefined,()=>{u.loaded=false;m.visible=false;});}
+    loader.load(src,tex=>activateTexture(m,m.material,u,tex),undefined,()=>{u.loaded=false;m.visible=false;});}
   let vel=0.9,drag=false,py=0;
   host.addEventListener('wheel',e=>{e.preventDefault();vel+=e.deltaY*0.008;},{passive:false});
   host.addEventListener('pointerdown',e=>{drag=true;py=e.clientY;host.setPointerCapture(e.pointerId);});
@@ -142,14 +157,14 @@ function initGallery3DLazy(){
     if(window.THREE){initGallery3D();return;}
     const script=document.createElement('script');
     script.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    script.async=true;
+    script.async=true;script.crossOrigin='anonymous';script.fetchPriority='high';
     script.onload=initGallery3D;
     script.onerror=()=>buildGalFallback(host,(host.dataset.imgs?host.dataset.imgs.split(','):mixPool()).map(s=>s.trim()));
     document.head.appendChild(script);
   };
-  const afterIdle=()=>{'requestIdleCallback' in window?requestIdleCallback(start,{timeout:650}):setTimeout(start,180);};
-  if(!('IntersectionObserver' in window)){afterIdle();return;}
-  const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();afterIdle();}},{rootMargin:'200px 0px'});
+  const afterFirstPaint=()=>requestAnimationFrame(()=>setTimeout(start,60));
+  if(!('IntersectionObserver' in window)){afterFirstPaint();return;}
+  const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();afterFirstPaint();}},{rootMargin:'200px 0px'});
   observer.observe(host);
 }
 function buildGalFallback(host,imgs){

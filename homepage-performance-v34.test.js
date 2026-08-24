@@ -17,6 +17,7 @@ const sitemap = read('sitemap.xml');
 for (const [name, html] of [['index.html', index], ['inicio.html', inicio]]) {
   assert.match(html, /id="gal3d"/, `${name} debe conservar el diseño original del carrusel 3D.`);
   assert.doesNotMatch(html, /class="gal-cover"/, `${name} no debe sustituir el carrusel por una portada estática.`);
+  assert.match(html, /rel="preconnect" href="https:\/\/cdnjs\.cloudflare\.com"/);
   assert.match(html, /assets\/site\.css\?v=20260824v34/);
   assert.match(html, /assets\/site\.js\?v=20260824v34/);
 }
@@ -24,11 +25,17 @@ for (const [name, html] of [['index.html', index], ['inicio.html', inicio]]) {
 assert.match(css, /\.gal-hero\{[^}]+background:#09060d/);
 assert.match(js, /mesh\.visible=false/);
 assert.match(js, /if\(!u\.loaded\|\|!m\.material\.map\)/, 'Un plano 3D nunca puede mostrarse antes de cargar su textura.');
-assert.match(js, /optimizedImage\(s\.trim\(\),mobile\?480:960\)/, 'El carrusel debe usar imágenes responsivas, no originales pesados.');
+assert.match(js, /const imgs=sources\.map\(s=>optimizedImage\(s,mobile\?480:960\)\)/, 'El carrusel debe usar imágenes responsivas, no originales pesados.');
+assert.match(js, /const previews=sources\.map\(s=>optimizedImage\(s,480\)\)/, 'La primera aparición de escritorio debe usar previsualizaciones ligeras.');
 assert.match(js, /GALLERY_LIMIT=matchMedia\('\(max-width:700px\)'\)\.matches\?8:14/);
 assert.match(js, /antialias:!mobile/);
 assert.match(js, /mobile\?1\.35:1\.75/);
-assert.match(js, /requestIdleCallback\(start,\{timeout:650\}\)/, 'El carrusel debe arrancar tras el primer render, con espera acotada.');
+assert.match(js, /textureJobs\.sort\(\(a,b\)=>a\.rank-b\.rank\)/, 'Las texturas frente a cámara deben cargarse primero.');
+assert.match(js, /textureJobs\.slice\(0,4\)\.forEach\(job=>job\.load\(\)\)/);
+assert.match(js, /renderer\.initTexture\(tex\)/, 'La textura debe subir a la GPU antes de mostrar el plano.');
+assert.match(js, /requestAnimationFrame\(\(\)=>requestAnimationFrame/, 'El plano debe esperar dos frames después de preparar su textura.');
+assert.match(js, /requestAnimationFrame\(\(\)=>setTimeout\(start,60\)\)/, 'El carrusel debe arrancar justo después del primer render.');
+assert.match(js, /script\.fetchPriority='high'/);
 assert.doesNotMatch(js, /max-width:700px\)'\)\.matches\|\|matchMedia\('\(prefers-reduced-motion/, 'El teléfono no debe degradarse a una portada estática.');
 
 const hero480 = fs.statSync(path.join(root, 'img', 'optimized-v33', 'pf_xv_4-480.webp')).size;
