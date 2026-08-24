@@ -24,8 +24,8 @@
 /embarazadas     /combos.html?cat=embarazadas 302
 
 # Portafolio (página web pública). El enlace que enviaste a clientes:
-/portafolio      /#portafolio       302
-/galeria         /#portafolio       302
+/portafolio      /combos.html#portafolio 302
+/galeria         /combos.html#portafolio 302
 
 # Inyector privado con auth
 /admin           /admin-portfolio.html  200

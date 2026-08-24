@@ -32,9 +32,9 @@ window.CRM_CONFIG = window.DCARELA_CRM_CONFIG = {
   bridgeBusinessNumber: "18094785620",
   bridgeBusinessDisplayNumber: "809-478-5620",
 
-  publicPortfolioUrl: "https://dcarelacompufoto.com/portafolio.html",
+  publicPortfolioUrl: "https://dcarelacompufoto.com/combos.html",
   publicCatalogUrl: "https://dcarelacompufoto.com/combos.html",
-  publicGalleryUrl: "https://dcarelacompufoto.com/portafolio.html",
+  publicGalleryUrl: "https://dcarelacompufoto.com/combos.html",
   publicWeddingUrl: "https://dcarelacompufoto.com/boda.html",
 
   metaPixelId: "1377359270081777",
