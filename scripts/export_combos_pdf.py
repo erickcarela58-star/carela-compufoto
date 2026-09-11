@@ -58,7 +58,9 @@ def main():
     orden = por_categoria()
     faltan = [s for slugs in orden.values() for s in slugs if not (IMGD / (s + '.png')).is_file()]
     if faltan:
-        sys.exit(f'ABORTA: faltan tarjetas, corre antes export_combos_flyer.py all -> {faltan}')
+        sys.exit('ABORTA: faltan tarjetas. Corre antes:\n'
+                 '  node scripts/generar_tarjetas_combo.mjs todas\n'
+                 f'  faltan -> {faltan}')
 
     total = 0
     for cat, slugs in orden.items():
