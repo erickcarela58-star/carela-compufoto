@@ -43,4 +43,34 @@ for (const file of legacy) {
 }
 
 assert.equal(fs.readdirSync(path.join(root, 'combos-img')).filter(name => name.endsWith('.png')).length, 39, 'La biblioteca que consumen los CRM debe conservar 39 imágenes.');
+
+// El panel del CRM no busca la tarjeta por una lista: la deduce del nombre del combo con
+// esta misma regla y pide /combos-img/<slug>.png. Renombrar un combo sin renombrar su
+// tarjeta deja al cliente recibiendo una foto sin precio ni detalle, y nadie se entera.
+const slugCombo = (cat, nombre) => cat + '-' + String(nombre || '').toLowerCase()
+  .replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+const porCategoria = {};
+for (const sec of html.match(/<section class="sec" id="(?:xv|infantil|graduacion|cumpleanos|embarazadas)"[\s\S]*?<\/section>/g) || []) {
+  const cat = sec.match(/id="(\w+)"/)[1];
+  porCategoria[cat] = [...sec.matchAll(/<div class="cname">([^<]+)<\/div>/g)].map(m => m[1].trim());
+}
+const nombres = Object.entries(porCategoria).flatMap(([cat, ns]) => ns.map(n => [cat, n]));
+assert.equal(nombres.length, 39, 'Los 39 combos deben repartirse entre las cinco categorías.');
+for (const [cat, nombre] of nombres) {
+  const archivo = path.join(root, 'combos-img', slugCombo(cat, nombre) + '.png');
+  assert.ok(fs.existsSync(archivo), `El CRM pediría ${slugCombo(cat, nombre)}.png para "${nombre}" y no existe.`);
+}
+
+// Los cinco PDF que el panel ofrece en "Catálogo en PDF". Estuvieron en 404 durante
+// meses: los botones existían y el archivo no. Una página por combo de la categoría.
+for (const [cat, ns] of Object.entries(porCategoria)) {
+  const pdf = path.join(root, 'pdf', `combos-${cat}.pdf`);
+  assert.ok(fs.existsSync(pdf), `El panel ofrece /pdf/combos-${cat}.pdf y no existe.`);
+  const bytes = fs.readFileSync(pdf);
+  assert.ok(bytes.subarray(0, 5).toString() === '%PDF-', `combos-${cat}.pdf no es un PDF.`);
+  const paginas = (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
+  assert.equal(paginas, ns.length, `combos-${cat}.pdf debe traer ${ns.length} combos, trae ${paginas}.`);
+  assert.ok(bytes.length < 8 * 1024 * 1024, `combos-${cat}.pdf pesa ${(bytes.length / 1048576).toFixed(1)} MB: demasiado para datos móviles.`);
+}
+
 console.log('Catálogo v33: 39 combos, diseño moderno y 18 rutas heredadas retiradas.');
