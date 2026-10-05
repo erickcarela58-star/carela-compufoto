@@ -657,9 +657,22 @@ function initVideos(){
 }
 
 /* ================= boot ================= */
+/* Fotos subidas desde el CRM (Configuración → Portafolio de la web): se suman al pool de su categoría. La lista se guarda en este navegador (la siguiente visita arranca al instante)
+   y, sin copia guardada, la primera visita espera la respuesta como mucho 700 ms: si el servicio no contesta, la web sale igual con sus fotos de siempre. */
+const PF_API='https://crmportafolio-o2uqjp6fra-uc.a.run.app',PF_CLAVE='dc_pf_extra_v1';
+function sumaFotosCRM(items){(items||[]).forEach(function(it){if(!it||typeof it.url!=='string'||!/^https:\/\/crmportafolio-/.test(it.url)||!Array.isArray(POOL[it.categoria]))return;if(POOL[it.categoria].indexOf(it.url)<0)POOL[it.categoria].push(it.url);});}
+function pideFotosCRM(){return fetch(PF_API,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).then(function(d){if(d&&Array.isArray(d.items)){try{localStorage.setItem(PF_CLAVE,JSON.stringify({t:Date.now(),items:d.items.slice(0,400)}));}catch(_){}return d.items;}return null;}).catch(function(){return null;});}
+function cargaFotosCRM(){
+  let copia=null;try{copia=JSON.parse(localStorage.getItem(PF_CLAVE)||'null');}catch(_){}
+  if(copia&&Array.isArray(copia.items)){sumaFotosCRM(copia.items);pideFotosCRM();return Promise.resolve();}
+  return Promise.race([pideFotosCRM().then(sumaFotosCRM),new Promise(function(ok){setTimeout(ok,700);})]);
+}
+function arranca(){
 initGallery3DLazy();initOrbit();initExpandable();initCompare();initPortfolio();initWordAnim();initLineAnim();initWizard();initVideos();initAlbum();observeAnims();
 // Animaciones con el SCROLL: revela solo lo que ya está en pantalla al cargar; lo demás se revela al hacer scroll (IntersectionObserver).
 requestAnimationFrame(function(){$$('.reveal:not(.in),[data-anim]:not(.in)').forEach(function(e){if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in');});});
+}
+cargaFotosCRM().then(arranca,arranca);
 const needCombos=$('#combos-groups'),needBoda=$('#boda-grid');
 const _cv='?v='+(window.DC_V||Date.now());
 function loadJson(url,onData,host){
